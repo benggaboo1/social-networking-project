@@ -67,7 +67,7 @@ function login_user(){
 
       }
       else{
-        $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
+        $this->session->set_flashdata('error_msg', 'Email or Password is incorrect.');
         $this->load->view("login");
 
       }
