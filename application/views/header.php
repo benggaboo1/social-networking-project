@@ -16,12 +16,12 @@
 
         
         <!-- stylesheets -->
-        <link rel="stylesheet" href="/<?php echo base_url('/assets/css/bootstrap.min.css'); ?>">
-        <link rel="stylesheet" href="/<?php echo base_url('/assets/css/font-awesome.min.css'); ?>">
-        <link rel="stylesheet" href="/<?php echo base_url('/assets/css/animate.css'); ?>">
-        <link rel="stylesheet" href="/<?php echo base_url('/assets/css/owl.carousel.css'); ?>">
-        <link rel="stylesheet" href="/<?php echo base_url('/assets/css/owl.theme.css'); ?>">
-        <link rel="stylesheet" href="/<?php echo base_url('/assets/css/style.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('/assets/css/bootstrap.min.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('/assets/css/font-awesome.min.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('/assets/css/animate.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('/assets/css/owl.carousel.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('/assets/css/owl.theme.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('/assets/css/style.css'); ?>">
 
     </head>
     <body>
@@ -47,7 +47,7 @@
                 <!-- navbar logo -->
                 <div class="navbar-brand">
                     <span class="sr-only">Avada Pro Agency</span>
-                    <a href="index.html">
+                    <a href="<?php echo base_url('/home');?>">
                         <img src="assets/img/main_logo.png" class="img-responsive center-block" alt="logo">
                     </a>
                 </div>
@@ -109,6 +109,9 @@
 
                     <li>
                         <a href="contact.html"><span>contact</span></a>
+                    </li>
+                    <li>
+                        <?= $alumnusData->first_name ?>
                     </li>
                 </ul>
             </div><!-- nav links -->
