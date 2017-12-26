@@ -7,16 +7,6 @@ if(!$user_id){
 }
 
  ?>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>User Profile Dashboard-CodeIgniter Login Registration</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
-  <body>
-
 <div class="container">
   <div class="row">
     <div class="col-md-4">
@@ -51,5 +41,3 @@ if(!$user_id){
   </div>
 <a href="<?php echo base_url('user/user_logout');?>" >  <button type="button" class="btn-primary">Logout</button></a>
 </div>
-  </body>
-</html>

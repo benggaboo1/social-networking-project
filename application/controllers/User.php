@@ -62,9 +62,9 @@ function login_user(){
         $this->session->set_userdata('user_name',$data['name']);
         $this->session->set_userdata('user_age',$data['age']);
         $this->session->set_userdata('user_mobile',$data['mobile']);
-
+        $this->load->view('header');
         $this->load->view('user_profile');
-
+        $this->load->view('footer');
       }
       else{
         $this->session->set_flashdata('error_msg', 'Email or Password is incorrect.');
@@ -77,7 +77,9 @@ function login_user(){
 
 function user_profile(){
 
-$this->load->view('user_profile.php');
+  $this->load->view('header');
+  $this->load->view('user_profile');
+  $this->load->view('footer');
 
 }
 public function user_logout(){
