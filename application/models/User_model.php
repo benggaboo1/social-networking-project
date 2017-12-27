@@ -48,6 +48,19 @@ public function get_alumnus_data($alumnusId) {
   }
 }
 
+public function get_search_result($searchInput) {
+
+  $query = 'SELECT alumnus_id,CONCAT(first_name," ",last_name) AS name, profile_pic, address FROM alumnus 
+  WHERE (first_name LIKE "%"?"%") OR (last_name LIKE "%"?"%") OR (CONCAT(first_name," ",last_name) LIKE "%"?"%")';
+  $result = $this->db->query($query,array($searchInput,$searchInput,$searchInput));
+
+  if($result->num_rows()>0){
+    return $result->result();
+  }else{
+    return null;
+  } 
+}
+
 }
 
 

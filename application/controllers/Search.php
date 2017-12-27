@@ -30,7 +30,7 @@ public function search_view(){
   $searchInput = $this->input->post('searchInput');
   $data['searchResult'] = $this->user_model->get_search_result($searchInput);
   $this->load->view("header");
-  $this->load->view("search");
+  $this->load->view("search",$data);
 
 }
 

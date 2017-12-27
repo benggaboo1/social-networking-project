@@ -38,7 +38,24 @@
                                 </div>
                             </div>
                         </div> <!-- /.headline -->
-
+                        <?php if ($searchResult != null) : ?>
+                            <?php foreach($searchResult as $result) : ?>
+                            <br/>                       
+                                <div>
+                                    <div class="pull-left">
+                                        <img src="<?=$result->profile_pic ?>">
+                                    </div>
+                                    <div>
+                                        <?=$result->name?>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            <?=$result->address?>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                         <div class="portfolio-item-list">
                             <div class="row">
                             <section>
@@ -49,7 +66,7 @@
                             <div class="demo-html"></div>
                             <table id="example" class="stripe" cellspacing="0" width="100%">
                                 <thead>
-                                    <tr>
+                                    <tr>                                       
                                         <th>Name</th>
                                         <th>Position</th>
                                         <th>Office</th>
