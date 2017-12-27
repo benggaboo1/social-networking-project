@@ -30,8 +30,6 @@
                             <div class="blog-heading">
                                 <h3 class="text-capitalize"><?= $post['post']->name ?></h3>
                                 <span class="date"><?=date('M d, Y H:i:s',strtotime($post['post']->create_timestamp))?></span>
-                                <h3 class="text-capitalize"><?= $post['post']->name ?></h3>
-                                <span class="date"><?=date('M d, Y H:i:s',strtotime($post['post']->create_timestamp))?></span>
                                 <span>12 comments</span>
                             </div>
 
@@ -53,7 +51,6 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="article-conclusion">
-                                    <?=$post['post']->content?>
                                     </p>
                                 </div>
                             </div>
