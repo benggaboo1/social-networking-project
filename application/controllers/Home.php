@@ -26,7 +26,6 @@ public function index()
     );
     array_push($postAndComment,$object);
   }
-  //echo json_encode($postAndComment);
   $postData['postData'] = $postAndComment;
   if ($data['alumnusData']) {    
     $this->load->view("header",$data);   
