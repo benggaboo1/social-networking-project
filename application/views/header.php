@@ -28,7 +28,7 @@
     <style>
       div#main-nav-collapse.center {
           margin: auto;
-          width: 30%;
+          width: 33%;
       }
       div.searchFieldCss {
         width: 280px;
@@ -84,6 +84,10 @@
 
                     <li>
                         <a href="<?php echo base_url('/profile'); ?>"><span>profile</span></a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo base_url('/alumni'); ?>"><span>alumni</span></a>
                     </li>
 
                     <!-- <li>
