@@ -30,6 +30,9 @@
           margin: auto;
           width: 30%;
       }
+      div.searchFieldCss {
+        width: 280px;
+      }
     </style>
     <!-- site-navigation start -->  
     <nav id="mainNavigation" class="navbar navbar-dafault main-navigation" role="navigation">
@@ -37,21 +40,32 @@
             
             <div class="navbar-header">
                 
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse">
+                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button> -->
                 
-                <!-- navbar logo -->
+                <!-- navbar logo
                 <div class="navbar-brand">
                     <span class="sr-only">Avada Pro Agency</span>
-                    <a href="<?php echo base_url('/home');?>">
+                    <a href="<?php/* echo base_url('/home');*/?>">
                         <img src="assets/img/main_logo.png" class="img-responsive center-block" alt="logo">
                     </a>
                 </div>
-                <!-- navbar logo -->
+                navbar logo -->
+
+                <!-- news-letter -->
+                <div class="col-md-3 col-sm-6 col-xs-6 navbar-brand">
+                    <div class="input-group margin-bottom-sm sr-only searchFieldCss">
+                        <input class="form-control" type="text" placeholder="Search...">
+                        <span class="input-group-addon">
+                            <a href="<?php echo base_url('/search'); ?>"><i class="fa fa-search fa-fw"></i></a>
+                        </span>
+                    </div>
+                </div> <!-- /.footer-widget -->
+
 
             </div><!-- /.navbar-header -->
 
