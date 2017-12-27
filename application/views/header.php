@@ -58,12 +58,14 @@
 
                 <!-- news-letter -->
                 <div class="col-md-3 col-sm-6 col-xs-6 navbar-brand">
-                    <div class="input-group margin-bottom-sm sr-only searchFieldCss">
-                        <input class="form-control" type="text" placeholder="Search...">
-                        <span class="input-group-addon">
-                            <a href="<?php echo base_url('/search'); ?>"><i class="fa fa-search fa-fw"></i></a>
-                        </span>
-                    </div>
+                    <form role="form" method="post" action="<?php echo base_url('search/search_view'); ?>">
+                        <div class="input-group margin-bottom-sm sr-only searchFieldCss">                
+                            <input class="form-control" name="searchInput" type="text" placeholder="Search...">
+                            <span class="input-group-addon">
+                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Search" name="search" >
+                            </span>
+                        </div>
+                    </form>
                 </div> <!-- /.footer-widget -->
 
 
@@ -73,60 +75,20 @@
             <div class="collapse navbar-collapse center" id="main-nav-collapse">
                 <ul class="nav navbar-nav navbar-right  text-uppercase">
                     <li>
-                        <a href="index.html"><span>home</span></a>
+                        <a href="<?php echo base_url('/home'); ?>"><span>home</span></a>
                     </li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>pages</span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="about.html">about</a>
-                            </li>
-                            <li>
-                                <a href="service.html">service</a>
-                            </li>
-                            <li>
-                                <a href="portfolio.html">portfolio</a>
-                            </li>
-                            <li>
-                                <a href="gallery.html">gallery</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404 page</a>
-                            </li>
-                            <li>
-                                <a href="coming_soon.html">coming soon</a>
-                            </li>
-                        </ul>  <!-- end of /.dropdown-menu -->
-                    </li> <!-- end of /.dropdown -->
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>blog</span></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="multiple_blog_left_sidebar.html">multiple with left sidebar</a>
-                            </li>
-                            <li>
-                                <a href="multiple_blog.html">multiple with right sidebar</a>
-                            </li>
-                            <li>
-                                <a href="single_blog_left_sidebar.html">single with left sidebar</a>
-                            </li>
-                            <li>
-                                <a href="single_blog.html">single with right sidebar</a>
-                            </li>
-                            <li>
-                                <a href="single_blog_full_width.html">single full width</a>
-                            </li>
-                        </ul> <!-- end of /.dropdown-menu -->
-                    </li> <!-- end of /.dropdown -->
-
                     <li>
-                        <a href="contact.html"><span>contact</span></a>
+                        <a href="#"><span>messages</span></a>
                     </li>
+
                     <li>
+                        <a href="<?php echo base_url('/profile'); ?>"><span>profile</span></a>
+                    </li>
+
+                    <!-- <li>
                         <?= $alumnusData->first_name ?>
-                    </li>
+                    </li> -->
                 </ul>
             </div><!-- nav links -->
             
