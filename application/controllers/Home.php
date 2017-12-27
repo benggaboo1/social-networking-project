@@ -27,8 +27,12 @@ public function index()
     array_push($postAndComment,$object);
   }
   $postData['postData'] = $postAndComment;
-  if ($data['alumnusData']) {    
-    $this->load->view("header",$data);   
+  if ($alumnusId != null) {       
+    $this->load->view("header",
+      array(
+        "id"=>$this->session->userdata('alumnus_id')
+      )
+    ); 
   } else {
     $this->load->view('login');
   }

@@ -41,7 +41,7 @@
                         <?php if ($searchResult != null) : ?>
                             <?php foreach($searchResult as $result) : ?>
                             <br/>                       
-                                <div>
+                                <a href="<?php echo base_url('/profile?id='.$result->alumnus_id); ?>"><div>
                                     <div class="pull-left">
                                         <img src="<?=$result->profile_pic ?>">
                                     </div>
@@ -54,6 +54,7 @@
                                         </p>
                                     </div>
                                 </div>
+                                </a>
                             <?php endforeach; ?>
                         <?php endif; ?>
                         <div class="portfolio-item-list">

@@ -75,13 +75,6 @@ function login_user(){
 
 }
 
-function user_profile(){
-
-  $this->load->view('header');
-  $this->load->view('user_profile');
-  $this->load->view('footer');
-
-}
 public function user_logout(){
 
   $this->session->sess_destroy();

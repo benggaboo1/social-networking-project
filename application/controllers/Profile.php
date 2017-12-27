@@ -14,23 +14,26 @@ public function __construct(){
 
 public function index()
 {
-  $alumnusId = $this->session->userdata('alumnus_id');
-  $data['alumnusData'] = $this->user_model->get_alumnus_data($alumnusId);
+  $alumnusId = $this->input->get('id');
+  $profile['profileData'] = $this->user_model->get_alumnus_data($alumnusId);
   //$post['postData'] = $this->post_model->get_all_posts();
-  if ($data['alumnusData']) {    
-    $this->load->view("header",$data);   
+  if ($alumnusId != null) {       
+    $this->load->view("header",
+      array(
+        "id"=>$this->session->userdata('alumnus_id')
+      )
+    ); 
+    $this->load->view("profile",$profile);  
   } else {
     $this->load->view('login');
   }
-  $this->load->view("profile");
-  $this->load->view("footer"); 
+  
 }
 
 public function profile_view(){
 
   $this->load->view("header");
   $this->load->view("profile");
-  $this->load->view("footer");
 
 }
 

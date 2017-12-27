@@ -30,6 +30,8 @@
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
                                     <h2 class="section-title">our story</h2>
+                                    <p><?=$profileData->first_name?> <?=$profileData->last_name?></p>
+                                    <p><?=$profileData->age?></p>
                                 </div>
                             </div>
                         </div> <!-- /.headline -->

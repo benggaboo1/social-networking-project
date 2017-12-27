@@ -83,7 +83,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo base_url('/profile'); ?>"><span>profile</span></a>
+                        <a href="<?php echo base_url('/profile?id='.(ISSET($alumnusData)?$alumnusData->alumnus_id:$id)); ?>"><span>profile</span></a>
                     </li>
 
                     <li>
@@ -91,7 +91,6 @@
                     </li>
 
                     <!-- <li>
-                        <?= $alumnusData->first_name ?>
                     </li> -->
                 </ul>
             </div><!-- nav links -->
