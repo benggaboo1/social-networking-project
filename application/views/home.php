@@ -29,13 +29,26 @@
                         <article class="blog-item">                           
                             <div class="blog-heading">
                                 <h3 class="text-capitalize">single image post title here</h3>
-                                <span class="date"><?=date('M d, Y H:i:s',strtotime($post->create_timestamp))?></span>
+                                <span class="date"><?=date('M d, Y H:i:s',strtotime($post['post']->create_timestamp))?></span>
                                 <span>12 comments</span>
                             </div>
                             <p>
-                                <?=$post->content?>
+                                <?=$post['post']->content?>
+                            </p>    
+                                <?php if ($post['comments'] != null) : ?>                                   
+                                            <h3><?= count($post['comments']) ?> comments.</h3>
+                                            <?php foreach($post['comments'] as $comment) : ?>
+                                            <p>
+                                                    <p><strong><?=$comment->name?></strong></p>
+                                                    <?=$comment->content?>
+                                                    
+                                            </p>        
+                                            <?php endforeach; ?> 
+                                <?php else: ?>
+                                    No comments yet.                                     
+                                <?php endif; ?>
 
-                            </p>
+                            
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -60,7 +73,7 @@
                                                 <div class="col-md-9">
                                                     <p>
                                                         <strong>About Author</strong>
-                                                        <span class="author-name text-uppercase"><?= $post->name ?></span>
+                                                        <span class="author-name text-uppercase"><?= $post['post']->name ?></span>
                                                     </p>
                                                     <p>
                                                         Vestibulum varius fermentum risus vitae lacinia neque auctor nec. Nunc ac rutrum nulla. Nul maximus dolor in quam euismod ac viverra libero aliquet. Nunc sed nunc malesuada aliquet turpis eu dictum lectus. Cras eget sollicitudin lorem. Etiam commodo ultricies luctus.
@@ -75,7 +88,7 @@
                             <div class="comments">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3>2 Comments</h3>
+                                        <h3>2 comments</h3>
                                         <div class="cmnt-clipboard"><span class="btn-clipboard">Reply</span></div>
                                         <div class="well">
                                             <div class="row">

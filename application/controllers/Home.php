@@ -8,6 +8,7 @@ public function __construct(){
   			$this->load->helper('url');
   	 		$this->load->model('user_model');
         $this->load->model('post_model');
+        $this->load->model('comment_model');
         $this->load->library('session');
 
 }
@@ -16,16 +17,24 @@ public function index()
 {
   $alumnusId = $this->session->userdata('alumnus_id');
   $data['alumnusData'] = $this->user_model->get_alumnus_data($alumnusId);
-  $post['postData'] = $this->post_model->get_all_posts();
+  $postData = $this->post_model->get_all_posts();
+  $postAndComment = array();
+  foreach ($postData as $post ) {
+    $object = array(
+      'post'=>$post,
+      'comments'=>$this->comment_model->get_comments($post->post_id)
+    );
+    array_push($postAndComment,$object);
+  }
+  //echo json_encode($postAndComment);
+  $postData['postData'] = $postAndComment;
   if ($data['alumnusData']) {    
     $this->load->view("header",$data);   
   } else {
     $this->load->view('login');
   }
-  $this->load->view("home",$post);
-  $this->load->view("footer");
+  $this->load->view("home",$postData);
 }
-
 public function home_view(){
 
   $this->load->view("header");
