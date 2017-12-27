@@ -28,10 +28,13 @@
                     <main class="col-md-8 col-md-offset-2" style="display: block;">
                         <article class="blog-item">                           
                             <div class="blog-heading">
-                                <h3 class="text-capitalize">single image post title here</h3>
+                                <h3 class="text-capitalize"><?= $post['post']->name ?></h3>
+                                <span class="date"><?=date('M d, Y H:i:s',strtotime($post['post']->create_timestamp))?></span>
+                                <h3 class="text-capitalize"><?= $post['post']->name ?></h3>
                                 <span class="date"><?=date('M d, Y H:i:s',strtotime($post['post']->create_timestamp))?></span>
                                 <span>12 comments</span>
                             </div>
+
                             <p>
                                 <?=$post['post']->content?>
                             </p>    
@@ -46,49 +49,19 @@
                                             <?php endforeach; ?> 
                                 <?php else: ?>
                                     No comments yet.                                     
-                                <?php endif; ?>
-
-                            
-
+                                <?php endif; ?>                           
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="article-conclusion">
-                                        <strong>This is Bold Text.</strong>
-                                        In non ex at ligula fringilla lobortis. Ut et mauris auctor, aliquet nulla sed, 
-                                        <strong><em>This is Bold italic Text</em></strong> sed malesuada dolor. Integer fringilla odio a dolor aliquet, eu euismod lectus porttitor. Proin et libero nec eros eleifend commodo Phasellus sodales volutpat diam, id sagittis purus egestas dapibus. 
-                                        <a href="#"><u>This is Link Text</u></a> 
-                                        quis mi commodo blandit. Maecenas pellentesque, massa vitae faucibus consectetur, ante magna gravida magna, ut venenatis massa augue et odio.
+                                    <?=$post['post']->content?>
                                     </p>
-                                </div>
-                            </div>
-
-                            <div class="author">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="about-author">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <img src="assets/img/commenter2.jpg" class="img-responsive center-block img-circle" alt="author">
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <p>
-                                                        <strong>About Author</strong>
-                                                        <span class="author-name text-uppercase"><?= $post['post']->name ?></span>
-                                                    </p>
-                                                    <p>
-                                                        Vestibulum varius fermentum risus vitae lacinia neque auctor nec. Nunc ac rutrum nulla. Nul maximus dolor in quam euismod ac viverra libero aliquet. Nunc sed nunc malesuada aliquet turpis eu dictum lectus. Cras eget sollicitudin lorem. Etiam commodo ultricies luctus.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
                             <div class="comments">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3>2 comments</h3>
+                                        <h3>2 Comments</h3>
                                         <div class="cmnt-clipboard"><span class="btn-clipboard">Reply</span></div>
                                         <div class="well">
                                             <div class="row">
