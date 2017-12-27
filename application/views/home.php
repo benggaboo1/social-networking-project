@@ -28,15 +28,29 @@
                     <main class="col-md-8 col-md-offset-2" style="display: block;">
                         <article class="blog-item">                           
                             <div class="blog-heading">
-                                <h3 class="text-capitalize"><?= $post->name ?></h3>
-                                <span class="date"><?=date('M d, Y H:i:s',strtotime($post->create_timestamp))?></span>
+                                <h3 class="text-capitalize"><?= $post['post']->name ?></h3>
+                                <span class="date"><?=date('M d, Y H:i:s',strtotime($post['post']->create_timestamp))?></span>
                                 <span>12 comments</span>
                             </div>
 
+                            <p>
+                                <?=$post['post']->content?>
+                            </p>    
+                                <?php if ($post['comments'] != null) : ?>                                   
+                                            <h3><?= count($post['comments']) ?> comments.</h3>
+                                            <?php foreach($post['comments'] as $comment) : ?>
+                                            <p>
+                                                    <p><strong><?=$comment->name?></strong></p>
+                                                    <?=$comment->content?>
+                                                    
+                                            </p>        
+                                            <?php endforeach; ?> 
+                                <?php else: ?>
+                                    No comments yet.                                     
+                                <?php endif; ?>                           
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="article-conclusion">
-                                    <?=$post->content?>
                                     </p>
                                 </div>
                             </div>
