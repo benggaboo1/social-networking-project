@@ -85,11 +85,11 @@
                     <li>
                         <a href="<?php echo base_url('/profile?id='.(ISSET($alumnusData)?$alumnusData->alumnus_id:$id)); ?>"><span>profile</span></a>
                     </li>
-
+                    <?php if($this->session->userdata('is_admin')) : ?>
                     <li>
                         <a href="<?php echo base_url('/alumni'); ?>"><span>alumni</span></a>
                     </li>
-
+                    <?php endif; ?>
                     <!-- <li>
                     </li> -->
                 </ul>
