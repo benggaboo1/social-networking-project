@@ -16,16 +16,12 @@ public function index()
 {
   $alumnusId = $this->session->userdata('alumnus_id');
   $data['alumnusData'] = $this->user_model->get_alumnus_data($alumnusId);
-  //$post['postData'] = $this->post_model->get_all_posts();
-  if ($alumnusId != null) {       
-    $this->load->view("header",
-      array(
-        "id"=>$this->session->userdata('alumnus_id')
-      )
-    );   
-  } else {
-    $this->load->view('login');
-  }
+  //$post['postData'] = $this->post_model->get_all_posts();     
+  $this->load->view("header",
+    array(
+      "id"=>$this->session->userdata('alumnus_id')
+    )
+  );   
   $this->load->view("search");
 }
 

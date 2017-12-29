@@ -26,16 +26,13 @@ public function index()
     );
     array_push($postAndComment,$object);
   }
-  $postData['postData'] = $postAndComment;
-  if ($alumnusId != null) {       
-    $this->load->view("header",
+  $postData['postData'] = $postAndComment;      
+  $this->load->view("header",
       array(
         "id"=>$this->session->userdata('alumnus_id')
       )
     ); 
-  } else {
-    $this->load->view('login');
-  }
+  
   $this->load->view("home",$postData);
 }
 public function home_view(){
