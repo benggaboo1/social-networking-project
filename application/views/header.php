@@ -25,9 +25,8 @@
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/owl.carousel.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/owl.theme.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/style.css'); ?>">
-
     </head>
-    <body>
+    <body>    
     <style>
       div#main-nav-collapse.center {
           margin: auto;
@@ -103,4 +102,7 @@
             
         </div><!-- /.container -->
     </nav>
+    <script type="text/javascript">
+        var baseUrl = "<?php echo base_url(); ?>";
+    </script>
     <!-- site-navigation end -->

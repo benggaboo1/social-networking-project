@@ -19,9 +19,21 @@
         </div> <!-- /.header-wrapper -->
     </header> <!-- /.page-head (header end) -->
 
+    <section>
+        <div class="container">
+            <div>
+                <p>Make a post</p>
+                <form>
+                    <input id="post_content" type="textarea"/>
+                    <input id="post_alumnus_id" type="hidden" value="<?= $this->session->userdata('alumnus_id'); ?>"/>
+                    <button type="button" class="success" id="submitPost">Post</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <section class="blog-content">
-        <div class="container">
+        <div class="container post">
             <?php if ($postData != null) : ?>
                 <?php foreach ($postData as $post) : ?>
                 <div class="row">
@@ -29,7 +41,7 @@
                         <article class="blog-item">                           
                             <div class="blog-heading">
                                 <h3 class="text-capitalize"><?= $post['post']->name ?></h3>
-                                <span class="date"><?=date('M d, Y H:i:s',strtotime($post['post']->create_timestamp))?></span>
+                                <span class="date"><?=date('M d, Y H:i a',strtotime($post['post']->create_timestamp))?></span>
                                 <span>12 comments</span>
                             </div>
 
@@ -46,7 +58,7 @@
                                             </p>        
                                             <?php endforeach; ?> 
                                 <?php else: ?>
-                                    No comments yet.                                     
+                                    <p>No comments yet.</p>                                     
                                 <?php endif; ?>                           
                             <div class="row">
                                 <div class="col-md-12">
@@ -129,8 +141,8 @@
                 <?php endforeach; ?>
                 <?php else: ?>
                     NO POSTS TO SHOW
-            <?php endif; ?>    
-        </div>
+            <?php endif; ?>                        
+        </div>       
     </section>
 
 
@@ -302,4 +314,7 @@
 
 </div> 
 <!-- end of /#multiple-blog-page -->
-
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/moment.js"></script>
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url('/assets/js/home.js'); ?>"></script>

@@ -17,7 +17,7 @@ public function index()
 {
   $alumnusId = $this->session->userdata('alumnus_id');
   $data['alumnusData'] = $this->user_model->get_alumnus_data($alumnusId);
-  $postData = $this->post_model->get_all_posts();
+  $postData = $this->get_posts();
   $postAndComment = array();
   foreach ($postData as $post ) {
     $object = array(
@@ -35,12 +35,33 @@ public function index()
   
   $this->load->view("home",$postData);
 }
+
+private function get_posts() {
+  $postData = $this->post_model->get_all_posts();
+  return $postData;
+}
 public function home_view(){
 
   $this->load->view("header");
   $this->load->view("home");
   $this->load->view("footer");
 
+}
+
+public function new_post() {
+  $content = $this->input->post('content');
+  $alumnusId = $this->input->post('alumnus_id');
+  $postData = array(
+    'content'=>$content,
+    'alumnus_id'=>$alumnusId
+  ); 
+  $isSuccess = $this->post_model->create_post($postData);
+  if ($isSuccess) {
+    $data = $this->post_model->get_post($alumnusId);
+    echo json_encode($data);
+  } else {
+    //post failed
+  }
 }
 
 }
