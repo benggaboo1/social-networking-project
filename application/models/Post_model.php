@@ -5,7 +5,8 @@ class Post_model extends CI_model{
         
         $query = $this->db->select('post_id,create_timestamp,content,profile_pic,CONCAT(first_name," ",last_name) as name')
             ->from('post')
-            ->join('alumnus','post.alumnus_id = alumnus.alumnus_id')->get();
+            ->join('alumnus','post.alumnus_id = alumnus.alumnus_id')
+            ->order_by("create_timestamp", "desc")->get();
   
         if ($query->num_rows() > 0) {
             $data = $query->result();

@@ -3,7 +3,10 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> 
-
+<?php if($this->session->userdata('alumnus_id') == null) {
+    redirect('Login','refresh');
+}
+?>
 <html class="no-js"> <!--<![endif]-->
     <head>
 
@@ -90,6 +93,9 @@
                         <a href="<?php echo base_url('/alumni'); ?>"><span>alumni</span></a>
                     </li>
                     <?php endif; ?>
+                    <li>
+                        <a href="<?php echo base_url('/logout'); ?>"><span>logout</span></a>
+                    </li>
                     <!-- <li>
                     </li> -->
                 </ul>

@@ -7,6 +7,7 @@ public function get_comments($postId) {
             ->from('comment')
             ->join('alumnus','comment.alumnus_id = alumnus.alumnus_id')
             ->join('post','comment.post_id = post.post_id')
+            ->order_by("create_timestamp", "desc")
             ->where('comment.post_id',$postId)->get();
   
         if ($query->num_rows() > 0) {
