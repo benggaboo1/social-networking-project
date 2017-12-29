@@ -31,7 +31,7 @@
                         <div class="headline text-center">
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <h2 class="section-title">Search Results...</h2>
+                                    <h2 class="section-title">List of Alumni Here...</h2>
                                     <p class="section-sub-title">
                                         absolutely stunning design &amp; functionality
                                     </p> <!-- /.section-sub-title -->
