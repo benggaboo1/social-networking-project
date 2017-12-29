@@ -61,6 +61,17 @@ public function get_search_result($searchInput) {
   } 
 }
 
+public function get_alumni() {
+  $query = $this->db->select('*')
+    ->from('alumnus')->get();
+
+  if($query->num_rows()>0){
+    return $query->result();
+  }else{
+    return false;
+  }
+}
+
 }
 
 

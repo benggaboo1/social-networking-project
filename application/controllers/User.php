@@ -75,6 +75,10 @@ function login_user(){
 
 }
 
+function getAlumni() {
+  
+}
+
 public function user_logout(){
 
   $this->session->sess_destroy();
