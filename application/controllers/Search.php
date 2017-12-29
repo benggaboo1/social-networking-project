@@ -14,8 +14,6 @@ public function __construct(){
 
 public function index()
 {
-  $alumnusId = $this->session->userdata('alumnus_id');
-  $data['alumnusData'] = $this->user_model->get_alumnus_data($alumnusId);
   //$post['postData'] = $this->post_model->get_all_posts();     
   $this->load->view("header",
     array(
@@ -26,7 +24,7 @@ public function index()
 }
 
 public function search_view(){
-  $searchInput = $this->input->post('searchInput');
+  $searchInput = $this->input->get('searchInput');
   $data['searchResult'] = $this->user_model->get_search_result($searchInput);
   if ($searchInput != null) {       
     $this->load->view("header",
