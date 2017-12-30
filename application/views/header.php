@@ -64,7 +64,7 @@
                         <div class="input-group margin-bottom-sm sr-only searchFieldCss">                
                             <input class="form-control" name="searchInput" type="text" placeholder="Search...">
                             <span class="input-group-addon">
-                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Search" name="search" >
+                                <button class="btn btn-lg btn-success btn-block" type="submit" ><i class="fa fa-search fa-fw"></i></button>
                             </span>
                         </div>
                     </form>
