@@ -10,8 +10,8 @@
                             <div class="col-md-12">
 
                                 <ol class="breadcrumb">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li class="active">Search</li>
+                                    <li><a href="index.html">home</a></li>
+                                    <li class="active">alumni</li>
                                 </ol> <!-- end of /.breadcrumb -->
 
                             </div>
@@ -42,32 +42,29 @@
                         <div class="portfolio-item-list">
                             <div class="row">
                             <section>
-                            <h1>DataTables example <span>Base style - stripe</span></h1>
-                            <div class="info">
-                                <p>This example shows DataTables with just the <code>stripe</code> class specified.</p>
-                            </div>
-                            <div class="demo-html"></div>
                             <table id="example" class="stripe" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Contact Number</th>
-                                        <th>Address</th>
-                                        <th>Age</th>
-                                        <th>Occupation</th>
                                         <th>Year Graduated</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Address</th>
+                                        <th>Contact Number</th>
+                                        <th>Occupation</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php if (count($alumniList) > 0) : ?>
                                     <?php foreach ($alumniList as $alumnus) :?>
                                         <tr>
+                                        	<td><?= $alumnus->year_graduated ?></td>
                                             <td><?= $alumnus->first_name.' '.$alumnus->last_name ?></td>
-                                            <td><?= $alumnus->contact_number ?></td>
-                                            <td><?= $alumnus->address ?></td>
                                             <td><?= $alumnus->age ?></td>
-                                            <td><?= $alumnus->occupation ?></td>
-                                            <td><?= $alumnus->year_graduated ?></td>
+                                            <td><?= $alumnus->gender ?></td>
+                                            <td><?= $alumnus->address ?></td>
+                                            <td><?= $alumnus->contact_number ?></td>
+                                            <td><?= $alumnus->occupation ?></td>                              
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
@@ -82,12 +79,12 @@
                             </div>
                         </div> <!-- end of portfolio-item-list -->
 
-                        <div id="morePortfolio"></div>
+                        <!-- <div id="morePortfolio"></div>
                         <div class="text-center">
                             <a id="loadPortfolio" class="hidden-xs btn btn-white">
                                 Load More <span class="caret"></span>
                             </a>
-                        </div>
+                        </div> -->
                             
                     </div>
                 </section> 

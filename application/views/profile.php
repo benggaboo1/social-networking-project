@@ -11,7 +11,7 @@
 
                                 <ol class="breadcrumb">
                                     <li><a href="index.html">home</a></li>
-                                    <li class="active">about us</li>
+                                    <li class="active">profile</li>
                                 </ol> <!-- end of /.breadcrumb -->
 
                             </div>
@@ -22,30 +22,6 @@
 
             <div class="main-content">
 
-                <!-- begin our story section -->
-
-                <section class="bg-white story">
-                    <div class="container">
-                        <div class="headline text-center">
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3">
-                                    <h2 class="section-title">our story</h2>
-                                    <p><?=$profileData->first_name?> <?=$profileData->last_name?></p>
-                                    <p><?=$profileData->age?></p>
-                                </div>
-                            </div>
-                        </div> <!-- /.headline -->
-
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-1 text-center">
-                                <p class="story-description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed elit eu ipsum aliquam mattis ac eget tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum at neque sed lobortis. Fusce hendrerit in erat a ullamcorper. Donec tincidunt ornare rutrum. Vestibulum quis risus vitae velit vulputate tristique. Donec nec tortor metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque blandit mauris in orci iaculis, non fermentum nisl. 
-                                </p> <!-- /.story-description -->
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- end of our story section -->
 
 
                 <!-- begin our designation section -->
@@ -56,7 +32,7 @@
                         <div class="headline text-center">
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <h2 class="section-title">our designation</h2>
+                                    <h2 class="section-title">profile page</h2>
                                 </div>
                             </div>
                         </div> <!-- /.headline -->
@@ -64,61 +40,18 @@
                         <div class="team-list">
                             <div class="container">
                                 <div class="row">
-
-                                    <div class="col-md-4">
-                                        <div class="team-member-box text-center">
-                                            <img src="assets/img/team-member1.jpg" class="img-responsive center-block" alt="team-member 1">
-                                            <div class="team-member-description">
-                                                <div class="team-member-about">
-                                                    <h4>David Martin</h4>
-                                                    <p>Phasellus sit amet tristique ligula. Donec iaculis leo suscipit ultricies</p>
-
-                                                </div> <!-- end of /.team-member-about -->
-                                                <div class="team-member-social">
-                                                    <a href="#">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a>
-                                                </div> <!-- end of /.team-member-social -->
-                                            </div> <!-- end of /.team-member-description -->
-                                        </div> <!-- end of /.team-member-box -->
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="team-member-box text-center">
-                                            <img src="assets/img/team-member2.jpg" class="img-responsive center-block" alt="team-member 2">
-                                            <div class="team-member-description">
-                                                <div class="team-member-about">
-                                                    <h4>Jenefir White</h4>
-                                                    <p>Phasellus sit amet tristique ligula. Donec iaculis leo suscipit ultricies</p>
-                                                </div> <!-- end of /.team-member-about -->
-                                                <div class="team-member-social">
-                                                    <a href="#">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a>
-                                                </div> <!-- end of /.team-member-social -->
-                                            </div> <!-- end of /.team-member-description -->
-                                        </div> <!-- end of /.team-member-box -->
-                                    </div>
-
+                                    
                                     <div class="col-md-4">
                                         <div class="team-member-box text-center">
                                             <img src="assets/img/team-member3.jpg" class="img-responsive center-block" alt="team-member 3">
+                                            <div class="cmnt-clipboard"><span class="btn-clipboard"><i class="fa fa-edit"></i></span></div>
                                             <div class="team-member-description">
                                                 <div class="team-member-about">
-                                                    <h4>Reena Scot</h4>
-                                                    <p>Phasellus sit amet tristique ligula. Donec iaculis leo suscipit ultricies</p>
+                                                    <h4><?=$profileData->first_name?> <?=$profileData->last_name?></h4>
+                                                    <p><?=$profileData->age?> - <?=$profileData->gender?></p>
+                                                    <p>Birthday: <?=$profileData->birthday?></p>
+                                                    <p>Year Graduated: <?=$profileData->year_graduated?></p>
+                                                    <!-- <p>Phasellus sit amet tristique ligula. Donec iaculis leo suscipit ultricies</p> -->
                                                 </div> <!-- end of /.team-member-about -->
                                                 <div class="team-member-social">
                                                     <a href="#">
@@ -134,10 +67,103 @@
                                             </div> <!-- end of /.team-member-description -->
                                         </div> <!-- end of /.team-member-box -->
                                     </div>
-
+                                    
                                 </div>
                             </div>
                         </div> <!-- end of /.team-list -->
+
+                        <!-- contact adresses section begin -->
+                        <section class="contact-address bg-white">
+                            <div class="row">
+
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="address-info">
+                                        <div class="row">
+
+                                            <div class="col-md-3 col-xs-3">
+                                                <div class="address-info-icon text-center center-block bg-light-gray">
+                                                    <i class="fa fa-map-marker"></i>
+                                                </div> <!-- /.address-info-icon -->
+                                            </div>
+
+                                            <div class="col-md-9 col-xs-9 address-info-desc">
+                                                <h3>Address</h3>
+                                                <p>
+                                                    <?=$profileData->address?>
+                                                </p>
+                                            </div> <!-- /.address-info-desc -->
+
+                                        </div>
+                                    </div> <!-- /.address-info -->
+                                </div>
+
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="address-info">
+                                        <div class="row">
+
+                                            <div class="col-md-3 col-xs-3">
+                                                <div class="address-info-icon text-center center-block bg-light-gray">
+                                                    <i class="fa fa-phone"></i>
+                                                </div> <!-- /.address-info-icon -->
+                                            </div>
+
+                                            <div class="col-md-9 col-xs-9 address-info-desc">
+                                                <h3>Contact Number</h3>
+                                                <p>
+                                                    Mobile: <?=$profileData->contact_number?>
+                                                </p>
+                                            </div> <!-- /.address-info-desc -->
+
+                                        </div>
+                                    </div> <!-- /.address-info -->
+                                </div>
+
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="address-info">
+                                        <div class="row">
+
+                                            <div class="col-md-3 col-xs-3">
+                                                <div class="address-info-icon text-center center-block bg-light-gray">
+                                                    <i class="fa fa-envelope-o"></i>
+                                                </div> <!-- /.address-info-icon -->
+                                            </div>
+
+                                            <div class="col-md-9 col-xs-9 address-info-desc">
+                                                <h3>Email Address</h3>
+                                                <p>
+                                                    info@example.com
+                                                    <br/>
+                                                    www.example.com
+                                                </p>
+                                            </div> <!-- /.address-info-desc -->
+
+                                        </div>
+                                    </div> <!-- /.address-info -->
+                                </div>
+
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="address-info">
+                                        <div class="row">
+
+                                            <div class="col-md-3 col-xs-3">
+                                                <div class="address-info-icon text-center center-block bg-light-gray">
+                                                    <i class="fa fa-user"></i>
+                                                </div> <!-- /.address-info-icon -->
+                                            </div>
+
+                                            <div class="col-md-9 col-xs-9 address-info-desc">
+                                                <h3><?=$profileData->occupation?></h3>
+                                                <p>
+                                                    <?=$profileData->company_address?>
+                                                </p>
+                                            </div> <!-- /.address-info-desc -->
+
+                                        </div>
+                                    </div> <!-- /.address-info -->
+                                </div>
+
+                            </div>
+                        </section> <!-- /.contact-address -->
                     </div>
                 </section>
                  <!-- end of designation section -->

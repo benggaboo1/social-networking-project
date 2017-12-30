@@ -9,8 +9,8 @@
                     <div class="col-md-12">
 
                         <ol class="breadcrumb">
-                            <li><a href="#">blog</a></li>
-                            <li class="active">single blog</li>                            
+                            <li><a href="#">home</a></li>
+                            <li class="active">home</li>                            
                         </ol> <!-- end of /.breadcrumb -->
 
                     </div>
@@ -19,18 +19,6 @@
         </div> <!-- /.header-wrapper -->
     </header> <!-- /.page-head (header end) -->
 
-    <section>
-        <div class="container">
-            <div>
-                <p>Make a post</p>
-                <form>
-                    <input id="post_content" type="textarea"/>
-                    <input id="post_alumnus_id" type="hidden" value="<?= $this->session->userdata('alumnus_id'); ?>"/>
-                    <button type="button" class="success" id="submitPost">Post</button>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <section class="blog-content">
         <div class="container post">
@@ -44,66 +32,43 @@
                                 <span class="date"><?=date('M d, Y H:i a',strtotime($post['post']->create_timestamp))?></span>
                                 <span>12 comments</span>
                             </div>
-
-                            <p>
-                                <?=$post['post']->content?>
-                            </p>    
-                                <?php if ($post['comments'] != null) : ?>                                   
-                                            <h3><?= count($post['comments']) ?> comments.</h3>
-                                            <?php foreach($post['comments'] as $comment) : ?>
-                                            <p>
-                                                    <p><strong><?=$comment->name?></strong></p>
-                                                    <?=$comment->content?>
-                                                    
-                                            </p>        
-                                            <?php endforeach; ?> 
-                                <?php else: ?>
-                                    <p>No comments yet.</p>                                     
-                                <?php endif; ?>                           
+                         
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="article-conclusion">
+                                        <?=$post['post']->content?>
                                     </p>
                                 </div>
                             </div>
 
+
+                            <a href="#" class="text-capitalize ">
+                                read comments
+                                <span><i class="fa fa-angle-double-right"></i> </span>
+                            </a>
+
                             <div class="comments">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3>2 Comments</h3>
-                                        <div class="cmnt-clipboard"><span class="btn-clipboard">Reply</span></div>
-                                        <div class="well">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="assets/img/commenter1.jpg" class="img-responsive center-block" alt="first-comment">
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <p class="comment-info">
-                                                        <strong>Reena Scot</strong> <span>22 april 2015</span>
-                                                    </p>
-                                                    <p>
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since they 1500s.
-                                                    </p>
+                                        <?php if ($post['comments'] != null) : ?>                                   
+                                            <h3><?= count($post['comments']) ?> comments.</h3>
+                                            <div class="well">
+                                                <div class="row">
+                                                    <?php foreach($post['comments'] as $comment) : ?>
+                                                        <div class="col-md-2">
+                                                            <img src="assets/img/commenter1.jpg" class="img-responsive center-block" alt="first-comment">
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <p><strong><?=$comment->name?></strong></p><span>22 april 2015</span>
+                                                            <p><?=$comment->content?></p>
+                                                        </div>        
+                                                    <?php endforeach; ?> 
                                                 </div>
                                             </div>
-                                        </div>
+                                        <?php else: ?>
+                                            No comments yet.                                     
+                                        <?php endif; ?>  
 
-                                        <div class="cmnt-clipboard"><span class="btn-clipboard">Reply</span></div>
-                                        <div class="well">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="assets/img/commenter2.jpg" class="img-responsive center-block" alt="second-comment">
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <p class="comment-info">
-                                                        <strong>David Martin</strong> <span>22 april 2015</span>
-                                                    </p>
-                                                    <p>
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since they 1500s.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +77,7 @@
                                 <h3>Post A Comment</h3>
                                 <form method="post" >
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <!-- <div class="col-md-4">
                                             <div class="form-group">
                                                 <input  name="name" type="text" class="form-control" id="name" required="required" placeholder="Full Name">
                                             </div>
@@ -126,7 +91,7 @@
                                             <div class="form-group">
                                                 <input name="website" type="url" class="form-control" id="subject" required="required" placeholder="Your Website">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-12">
                                             <textarea name="message" type="text" class="form-control" id="message" rows="8" required="required" placeholder="Type here message"></textarea>
                                         </div>
@@ -141,8 +106,8 @@
                 <?php endforeach; ?>
                 <?php else: ?>
                     NO POSTS TO SHOW
-            <?php endif; ?>                        
-        </div>       
+            <?php endif; ?>    
+        </div>
     </section>
 
 
