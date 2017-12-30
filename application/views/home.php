@@ -20,6 +20,17 @@
     </header> <!-- /.page-head (header end) -->
 
 
+    <section>
+        <div class="container">
+            <div>
+                <form>
+                    <input type="textarea" id="post_content"/>
+                    <input type="hidden" id="post_alumnus_id" value="<?= $this->session->userdata('alumnus_id'); ?>"/>
+                    <button type="button" id="submitPost">Post</button>
+                </form>
+            </div>
+        </div>
+    </section>
     <section class="blog-content">
         <div class="container post">
             <?php if ($postData != null) : ?>
