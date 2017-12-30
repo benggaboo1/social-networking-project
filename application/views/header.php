@@ -41,35 +41,31 @@
         <div class="container">
             
             <div class="navbar-header">
-                
-                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button> -->
-                
-                <!-- navbar logo
-                <div class="navbar-brand">
-                    <span class="sr-only">Avada Pro Agency</span>
-                    <a href="<?php/* echo base_url('/home');*/?>">
-                        <img src="assets/img/main_logo.png" class="img-responsive center-block" alt="logo">
-                    </a>
-                </div>
-                navbar logo -->
-
                 <!-- news-letter -->
                 <div class="col-md-3 col-sm-6 col-xs-6 navbar-brand">
                     <form role="form" method="get" action="<?php echo base_url('search/search_view'); ?>">
                         <div class="input-group margin-bottom-sm sr-only searchFieldCss">                
                             <input class="form-control" name="searchInput" type="text" placeholder="Search...">
                             <span class="input-group-addon">
-                                <button class="btn btn-lg btn-success btn-block" type="submit" ><i class="fa fa-search fa-fw"></i></button>
+                                <button class="btn btn-sm btn-success btn-block" type="submit" style="padding: 0;"><i class="fa fa-search fa-fw"></i></button>
                             </span>
                         </div>
                     </form>
                 </div> <!-- /.footer-widget -->
 
+
+            </div><!-- /.navbar-header -->
+
+            <div class=" navbar" style="float:right;">
+                
+                <!-- navbar logo -->
+                <div class="navbar-brand" style="width: 40%; float:right;">
+                    <!-- <span class="sr-only">Avada Pro Agency<i class="fa fa-sign-out fa-fw"></i></span> -->
+                    <a href="<?php echo base_url('/logout'); ?>">
+                        <img src="<?php echo base_url('/assets/img/signout-icon.png'); ?>" class="img-responsive center-block" alt="logo">
+                    </a>
+                </div>
+               <!-- navbar logo -->
 
             </div><!-- /.navbar-header -->
 
@@ -92,11 +88,6 @@
                         <a href="<?php echo base_url('/alumni'); ?>"><span>alumni</span></a>
                     </li>
                     <?php endif; ?>
-                    <li>
-                        <a href="<?php echo base_url('/logout'); ?>"><span>logout</span></a>
-                    </li>
-                    <!-- <li>
-                    </li> -->
                 </ul>
             </div><!-- nav links -->
             

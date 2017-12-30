@@ -43,8 +43,8 @@
                                     
                                     <div class="col-md-4">
                                         <div class="team-member-box text-center">
-                                            <img src="assets/img/team-member3.jpg" class="img-responsive center-block" alt="team-member 3">
-                                            <div class="cmnt-clipboard"><span class="btn-clipboard"><i class="fa fa-edit"></i></span></div>
+                                            <img src="assets/img/team-member3.jpg" class="img-responsive center-block" alt="team-member 3" >
+                                            <div class="cmnt-clipboard"><span class="btn-clipboard" data-toggle="modal" data-target="#edit-profile-modal"><i class="fa fa-edit"></i></span></div>
                                             <div class="team-member-description">
                                                 <div class="team-member-about">
                                                     <h4><?=$profileData->first_name?> <?=$profileData->last_name?></h4>
@@ -169,203 +169,10 @@
                  <!-- end of designation section -->
 
 
-                 <!-- begin skill section -->
 
-                <section class="bg-light-gray skill">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h2>show off your skills</h2>
-                                <p>
-                                    Integer ac metus non ipsum congue tincidunt ut id lacus. Duis suscipit odio non lacus aliquam, eget faucibus enim posuere. Aenean ut lectus ipsum. Pellentesque sit amet elementum velit. Ut sapien ante, suscipit a auctor in, consectetur eu nibh. Etiam interdum consectetur lacus ut iaculis. In luctus magna vitae ultricies consequat.
-                                </p>
-
-                                <p>
-                                    In et blandit erat, ut gravida ante. Etiam ut est at dolor vehicula tempus quis ut augue. Duis nec ipsum ex. Sed in libero sit amet metus placerat commodo ut vitae nisi. Maecenas sit amet elit augue. Pellentesque pellentesque lacus eu fringilla dignissim. Aliquam consequat nec sapien quis tempor. 
-                                </p>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="skill-level">
-                                    <p>Mobile Application</p>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" style="width: 52%;">
-                                            52%
-                                         </div>
-                                    </div>
-
-                                    <p>Website Design</p>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" style="width: 98%;">
-                                            98%
-                                         </div>
-                                    </div>
-
-                                    <p>Development</p>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                                            75%
-                                         </div>
-                                    </div>
-
-                                    <p>Branding</p>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
-                                            30%
-                                         </div>
-                                    </div>
-                                </div> <!-- /.skill-level -->
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="bg-white sponsor">
-                    <div class="container">
-                        <div id="sponsor-list" class="owl-carousel owl-theme">
-
-                            <div class="item">
-                                <img src="assets/img/sponsor1.png" alt="sponsor1" class="center-block" style="width: 165px; height: 127px;">
-                            </div>
-
-                            <div class="item">
-                                <img src="assets/img/sponsor2.png" alt="sponsor2" class="center-block" style="width: 165px; height: 127px;">
-                            </div>
-
-                            <div class="item">
-                                <img src="assets/img/sponsor3.png" alt="sponsor3" class="center-block" style="width: 165px; height: 127px;">
-                            </div>
-
-                            <div class="item">
-                                <img src="assets/img/sponsor4.png" alt="sponsor4" class="center-block" style="width: 165px; height: 127px;" >
-                            </div>
-
-                            <div class="item">
-                                <img src="assets/img/sponsor5.png" alt="sponsor5" class="center-block" style="width: 165px; height: 127px;">
-                            </div>
-
-                            <div class="item">
-                                <img src="assets/img/sponsor6.png" alt="sponsor6" class="center-block" style="width: 165px; height: 127px;">
-                            </div>
-
-                        </div> <!--  / #sponsor-list /.owl-carousel -->
-                    </div>
-                </section>
+                
 
             </div> <!-- end of /.main-content -->
-
-
-            <footer>
-                <div class="container">
-                    <div class="row">
-
-                        <!-- useful links -->
-                        <div class="col-md-3 col-sm-6 col-xs-6 footer-widget">
-                            <h4>Useful Links</h4>
-                            <ul class="row footer-links">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <li><a href="#">Web Design</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Mobile</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Services</a></li>
-                                </div>
-
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <li><a href="#">Organization</a></li>
-                                    <li><a href="#">Career</a></li>
-                                    <li><a href="#">Media</a></li>
-                                    <li><a href="#">24/7</a></li>
-                                    <li><a href="#">Right Way</a></li>
-                                </div>
-                            </ul>
-                        </div>
-
-                        <!-- recent news -->
-                        <div class="col-md-3 col-sm-6 col-xs-6 footer-widget">
-                            <h4>Recent News</h4>
-
-                            <div class="row footer-news">
-                                <div class="col-md-4 col-sm-4 col-xs-6">
-                                    <img src="assets/img/intro.jpg" class="img-responsive center-block" alt="recent news 1">
-                                </div>
-                                <div class="col-md-8 col-sm-4 col-xs-6">
-                                    <div class="row">
-                                        <p class="text-capitalize">
-                                            <a href="#">
-                                                a clear website gives more experience to the visitors
-                                            </a>
-                                        </p>
-                                        <p class="news-date">Dec 12,2015</p>
-                                    </div>
-                                </div>
-                            </div> <!-- /.footer-news -->
-
-                            <div class="row footer-news">
-                                <div class="col-md-4 col-sm-4 col-xs-6">
-                                    <img src="assets/img/intro.jpg" class="img-responsive center-block" alt="recent news 2">
-                                </div>
-                                <div class="col-md-8 col-sm-4 col-xs-6">
-                                    <div class="row">
-                                        <p class="text-capitalize">
-                                            <a href="#">
-                                                a clear website gives more experience to the visitors
-                                            </a>
-                                        </p>
-                                        <p class="news-date">Dec 12,2015</p>
-                                    </div>
-                                </div>
-                            </div> <!-- /.footer-news -->
-                        </div> <!-- /.footer-widget -->
-
-                        <!-- news-letter -->
-                        <div class="col-md-3 col-sm-6 col-xs-6 footer-widget">
-                            <h4>E-News-Letter</h4>
-
-                            <p>Sign up for our mailing list to get latest updates and offers</p>
-                            <div class="input-group margin-bottom-sm">
-                                <input class="form-control" type="text" placeholder="Email address">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-paper-plane fa-fw"></i>
-                                </span>
-                            </div>
-                            <p>We respect your privacy</p>
-                        </div> <!-- /.footer-widget -->
-
-                        <!-- about avada agency -->
-                        <div class="col-md-3 col-sm-6 col-xs-6 footer-widget">
-                            <h4>Avada Agency</h4>
-
-                            <p>
-                                HUGE Website Builder is a big library of pre-designed web elements which help you to create website in few minutes.
-                            </p>
-
-                            <div class="footer-address">
-                                <p>
-                                    1-800-123-HELLO  <br>
-                                    example@mail.com
-                                </p>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul class="footer-share-button">
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul> <!-- /.footer-share-button -->
-                                </div>
-                            </div>
-                        </div> <!-- /.footer-widget -->
-
-                    </div>
-                </div>
-            </footer>
-
 
             <!-- footer-navigation start -->  
             <nav class="hidden-xs hidden-sm navbar footer-nav" role="navigation">
@@ -424,29 +231,76 @@
         </div>
          <!-- end of /#about-page -->
                    
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
 
-        <!--  Necessary scripts  
-        <script type="text/javascript" src="assets/js/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="assets/js/owl.carousel.js"></script> -->
-
-
-        <!-- script for sponsor using owl carousel -->
-
-        <script type="text/javascript">
-            $(document).ready(function() {
- 
-                $("#sponsor-list").owlCarousel({
-                 
-                    autoPlay: 3000, //Set AutoPlay to 3 seconds
-                    stopOnHover: true,
-                    items : 4,
-                    itemsDesktop: [1200,4],
-                    itemsDesktopSmall: [991,3],
-                    itemsTablet: [767,2],
-                    itemsTabletSmall: [625,2],
-                    itemsMobile: [479,1]
-                });
- 
-            });
-        </script>
+    <div id="edit-profile-modal" class="modal fade" style="margin-top: 50px;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Edit Profile</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="first_name" required="required" placeholder="Firstname">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="last_name" required="required" placeholder="Lastname">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="address" required="required" placeholder="Address">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="age" required="required" placeholder="Age">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="gender" required="required" placeholder="Gender">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="contact_number" required="required" placeholder="Contact Number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="birthday" required="required" placeholder="Birthday">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="year_graduated" required="required" placeholder="Year Graduated">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="confirm_password" required="required" placeholder="Occupation">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input  type="text" class="form-control" id="confirm_password" required="required" placeholder="Company Address">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Update Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
