@@ -8,9 +8,9 @@ $(document).ready(function() {
             type: 'POST',
             url: baseUrl + 'home/new_post',
             data: {'alumnus_id' : alumnusId, 'content' : content},
-            dataType: 'JSON',
             success: function(data){
-                $('#post-section').load(location.href+" #post-section>*",""); 
+                $('#post-section').load(location.href+" #post-section>*","");
+                $('#post_content').val('');
                 /*var formattedDate = moment(data.create_timestamp).format('MMM DD, YYYY h:mm a'); 
                 console.log(data);
                 $(".container.post").prepend('<div class="row">' +
@@ -42,9 +42,9 @@ $(document).ready(function() {
             data: {'alumnus_id' : alumnusId, 'content' : content, 'post_id' : postId},
             //dataType: 'JSON',
             success: function(data){ 
-                //var formattedDate = moment(data.create_timestamp).format('MMM DD, YYYY h:mm a'); 
-                console.log(data);           
+                //var formattedDate = moment(data.create_timestamp).format('MMM DD, YYYY h:mm a');        
                 $('#post-section').load(location.href+" #post-section>*","");
+                $('#comment_content').val('');
                 /*$(".container.post").prepend('<div class="row">' +
                 '<main class="col-md-8 col-md-offset-2" style="display: block;">' +
                         '<article class="blog-item">' +                         
