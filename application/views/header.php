@@ -36,6 +36,11 @@
         width: 280px;
       }
     </style>
+    <script>
+        function searchUserBtn(){
+            $("#searchUserForm").submit();
+        }
+    </script>
     <!-- site-navigation start -->  
     <nav id="mainNavigation" class="navbar navbar-dafault main-navigation" role="navigation">
         <div class="container">
@@ -43,11 +48,12 @@
             <div class="navbar-header">
                 <!-- news-letter -->
                 <div class="col-md-3 col-sm-6 col-xs-6 navbar-brand">
-                    <form role="form" method="get" action="<?php echo base_url('search/search_view'); ?>">
+                    <form id="searchUserForm" role="form" method="get" action="<?php echo base_url('search/search_view'); ?>">
                         <div class="input-group margin-bottom-sm sr-only searchFieldCss">                
                             <input class="form-control" name="searchInput" type="text" placeholder="Search...">
-                            <span class="input-group-addon">
-                                <button class="btn btn-sm btn-success btn-block" type="submit" style="padding: 0;"><i class="fa fa-search fa-fw"></i></button>
+                            <span class="input-group-addon" onclick="searchUserBtn();">
+                                <i class="fa fa-search fa-fw"></i>
+                                <!-- <button class="btn btn-sm btn-success btn-block" type="submit" style="padding: 0;"><i class="fa fa-search fa-fw"></i></button> -->
                             </span>
                         </div>
                     </form>
