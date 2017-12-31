@@ -51,7 +51,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="article-conclusion">
-                                        <input type="hidden" id="post_id" name="postId" value="<?=$post['post']->post_id; ?>"/>
+                                        <input type="hidden" class="post_id" name="postId" value="<?=$post['post']->post_id; ?>"/>
                                         <?=$post['post']->content?>
                                     </p>
                                 </div>
@@ -105,11 +105,11 @@
                                                 <form>
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <textarea name="message" name="content" type="text" class="form-control" id="comment_content" rows="3" required="required" placeholder="Type your comment here..."></textarea>
+                                                            <textarea name="message" name="content" type="text" class="form-control comment_content" rows="3" required="required" placeholder="Type your comment here..."></textarea>
                                                         </div>
                                                     </div>
                                                     
-                                                    <button type="button" id="submitComment" class="btn btn-black">add comment</button>
+                                                    <button type="button" class="submitComment" class="btn btn-black">add comment</button>
                                                 </form>
                                             </div>
                                         </div>
