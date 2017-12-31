@@ -65,8 +65,10 @@
                                             <td><?= $alumnus->gender ?></td>
                                             <td><?= $alumnus->address ?></td>
                                             <td><?= $alumnus->contact_number ?></td>
-                                            <td><?= $alumnus->occupation ?></td>   
+                                            <td><?= $alumnus->occupation ?></td>
+                                            <?php if ($alumnus->has_account == 0) : ?>   
                                             <td><center><i class="fa fa-plus-square-o fa-fw" data-toggle="modal" data-target="#add-user-modal"></i></center></td>                            
+                                            <?php endif; ?>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
