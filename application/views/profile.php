@@ -40,11 +40,12 @@
                         <div class="team-list">
                             <div class="container">
                                 <div class="row">
-                                    
                                     <div class="col-md-4">
                                         <div class="team-member-box text-center">
                                             <img src="assets/img/team-member3.jpg" class="img-responsive center-block" alt="team-member 3" >
-                                            <div class="cmnt-clipboard"><span class="btn-clipboard" data-toggle="modal" data-target="#edit-profile-modal"><i class="fa fa-edit"></i></span></div>
+                                            <?php if($this->input->get('id') == $id) : ?>
+                                                <div class="cmnt-clipboard"><span class="btn-clipboard" data-toggle="modal" data-target="#edit-profile-modal"><i class="fa fa-edit"></i></span></div>
+                                            <?php endif; ?>
                                             <div class="team-member-description">
                                                 <div class="team-member-about">
                                                     <h4><?=$profileData->first_name?> <?=$profileData->last_name?></h4>
@@ -303,8 +304,6 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery-2.1.3.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/moment.js"></script>
 <script type="text/javascript" charset="utf8" src="<?php echo base_url('/assets/js/profile.js'); ?>"></script>
 </html>

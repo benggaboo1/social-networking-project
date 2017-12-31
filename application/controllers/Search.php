@@ -25,17 +25,13 @@ public function index()
 
 public function search_view(){
   $searchInput = $this->input->get('searchInput');
-  $data['searchResult'] = $this->user_model->get_search_result($searchInput);
-  if ($searchInput != null) {       
+  $data['searchResult'] = $this->user_model->get_search_result($searchInput);      
     $this->load->view("header",
       array(
         "id"=>$this->session->userdata('alumnus_id')
       )
     );
     $this->load->view("search",$data);
-  } else {
-    $this->load->view("login");
-  }  
   
 
 }

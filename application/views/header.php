@@ -25,6 +25,8 @@
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/owl.carousel.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/owl.theme.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('/assets/css/style.css'); ?>">
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
     </head>
     <body>    
     <style>
@@ -36,11 +38,6 @@
         width: 280px;
       }
     </style>
-    <script>
-        function searchUserBtn(){
-            $("#searchUserForm").submit();
-        }
-    </script>
     <!-- site-navigation start -->  
     <nav id="mainNavigation" class="navbar navbar-dafault main-navigation" role="navigation">
         <div class="container">
@@ -101,5 +98,10 @@
     </nav>
     <script type="text/javascript">
         var baseUrl = "<?php echo base_url(); ?>";
+    </script>
+    <script>
+        function searchUserBtn(){
+            $("#searchUserForm").submit();
+        }
     </script>
     <!-- site-navigation end -->

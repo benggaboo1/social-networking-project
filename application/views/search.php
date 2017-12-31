@@ -69,6 +69,16 @@
                                                             </div>
                                                         </div>
                                                     <?php endforeach; ?>
+                                                    <?php else : ?>
+                                                        <div class="well">
+                                                            <div class="row">                     
+                                                                    <div>
+                                                                        <div class="pull-left col-md-2">
+                                                                            NO RESULTS FOUND.
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
