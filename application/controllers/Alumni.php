@@ -27,7 +27,27 @@ public function index()
 }
 
 public function create_user() {
+
+  $email = $this->input->post('email');
+  $isEmailExist = $this->user_model->email_check($email);
+
+  if ($email) {
+    $alumnusId = $this->input->post('alumnus_id');
+    $password = md5($this->input->post('password'));
+    $data = array(
+      'email'=>$email,
+      'alumnus_id'=>$alumnusId,
+      'password'=>$password
+    );
+    $this->user_model->link_user_data($data);
+    redirect('Alumni');
+  } else {
+
+  }
   
+
+  $this->user_model->link_user_data($data);
+
 }
 
 public function alumni_view(){

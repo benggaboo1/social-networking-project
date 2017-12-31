@@ -59,7 +59,7 @@
                                 <?php if (count($alumniList) > 0) : ?>
                                     <?php foreach ($alumniList as $alumnus) :?>
                                         <tr>
-                                        	<td><?= $alumnus->year_graduated ?></td>
+                                        	<td><span class="alumnusId" hidden="hidden"><?= $alumnus->alumnus_id ?></span><?= $alumnus->year_graduated ?></td>
                                             <td><?= $alumnus->last_name.', '.$alumnus->first_name ?></td>
                                             <td><?= $alumnus->age ?></td>
                                             <td><?= $alumnus->gender ?></td>
@@ -68,7 +68,7 @@
                                             <td><?= $alumnus->occupation ?></td>                   
                                             <td><center>
                                             <?php if ($alumnus->has_account == 0) : ?>
-                                                <i class="fa fa-plus-square-o fa-fw" data-toggle="modal" data-target="#add-user-modal"></i>
+                                                <i class="fa fa-plus-square-o fa-fw addUserBtn"></i>
                                             <?php endif; ?>
                                             </center></td>  
                                             
@@ -166,7 +166,7 @@
 
 
     <div id="add-user-modal" class="modal fade" style="margin-top: 100px;">
-        <form method="post" action="<?php base_url("alumni/create_user"); ?>">
+        <form method="post" action="<?php echo base_url("alumni/create_user"); ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -195,14 +195,14 @@
                                 <input type="password" class="form-control" name="confirm_password" required="required" placeholder="Confirm Password">
                             </div>
                         </div>
-                        <input type="hidden" id="alumnusId" name="alumnus_id"/>
+                        <input type="hidden" id="alumnusIdValue" name="alumnus_id"/>
                     </div>
                     <!-- <p>Do you want to save changes you made to document before closing?</p>
                     <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="addUser">Add User</button>
+                    <button type="submit" class="btn btn-primary" id="addUser">Add User</button>
                 </div>
             </div>
         </div>
