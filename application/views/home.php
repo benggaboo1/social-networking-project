@@ -78,7 +78,7 @@
                                                                             <img src="assets/img/commenter1.jpg" class="img-responsive center-block" alt="first-comment">
                                                                         </div>
                                                                         <div class="col-md-10">
-                                                                            <p><strong><?=$comment->name?></strong></p><span>22 april 2015</span>
+                                                                            <p><strong><?=$comment->name?></strong></p><span class="date"><?=date('M d, Y H:i a',strtotime($comment->create_timestamp))?></span>
                                                                             <p><?=$comment->content?></p>
                                                                         </div>        
                                                                     <?php endforeach; ?> 
