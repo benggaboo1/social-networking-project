@@ -82,6 +82,12 @@ class User_model extends CI_model{
     }
   }
 
+  public function update_profile($alumnusId,$data) {
+
+    $this->db->where('alumnus_id',$alumnusId);
+    $this->db->update('alumnus',$data);
+  }
+
 }
 
 ?>

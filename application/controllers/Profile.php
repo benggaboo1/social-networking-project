@@ -25,6 +25,39 @@ public function index()
   $this->load->view("profile",$profile);    
 }
 
+public function update_profile() {
+
+  $alumnusId = $this->input->post('alumnus_id');
+  $firstName = $this->input->post('first_name');
+  $lastName = $this->input->post('last_name');
+  $address = $this->input->post('address');
+  $age = $this->input->post('age');
+  $gender = $this->input->post('gender');
+  $contactNumber = $this->input->post('contact_number');
+  $birthday = $this->input->post('birthday');
+  $yearGraduated = $this->input->post('year_graduated');
+  $occupation = $this->input->post('occupation');
+  $companyAddress = $this->input->post('company_address');
+
+  $data = array(
+      'first_name'=>$firstName,
+      'last_name'=>$lastName,
+      'address'=>$address,
+      'age'=>$age,
+      'gender'=>$gender,
+      'address'=>$address,
+      'contact_number'=>$contactNumber,
+      'birthday'=>$birthday,
+      'year_graduated'=>$yearGraduated,
+      'occupation'=>$occupation,
+      'company_address'=>$companyAddress
+    );
+
+  $this->user_model->update_profile($alumnusId,$data);  
+  
+  redirect('profile?id='.$alumnusId);
+}
+
 public function profile_view(){
 
   $this->load->view("header");

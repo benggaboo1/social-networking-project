@@ -238,68 +238,76 @@
     <div id="edit-profile-modal" class="modal fade" style="margin-top: 50px;">
         <div class="modal-dialog">
             <div class="modal-content">
+            <form method="post" action="<?= base_url('profile/update_profile'); ?>">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Edit Profile</h4>
                 </div>
                 <div class="modal-body">
+                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="first_name" required="required" placeholder="Firstname">
+                                <input type="hidden" name="alumnus_id" value="<?=$id?>"/>
+                                <input  type="text" class="form-control" name="first_name" required="required" placeholder="Firstname" value="<?=$profileData->first_name;?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="last_name" required="required" placeholder="Lastname">
+                                <input  type="text" class="form-control" name="last_name" required="required" placeholder="Lastname" value="<?=$profileData->last_name;?>">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="address" required="required" placeholder="Address">
+                                <input  type="text" class="form-control" name="address" required="required" placeholder="Address" value="<?=$profileData->address;?>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="age" required="required" placeholder="Age">
+                                <input  type="text" class="form-control" name="age" required="required" placeholder="Age" value="<?=$profileData->age;?>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="gender" required="required" placeholder="Gender">
+                                <select name="gender" class="form-control">
+                                    <option value="M" <?=($profileData->gender == "M") ? "selected" : "" ;?>>M</option>
+                                    <option value="F" <?=($profileData->gender == "F") ? "selected" : "" ;?>>F</option>
+                                </select>
+                                <!--<input  type="text" class="form-control" name="gender" required="required" placeholder="Gender" value="<?=$profileData->gender;?>">-->
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="contact_number" required="required" placeholder="Contact Number">
+                                <input  type="text" class="form-control" name="contact_number" required="required" placeholder="Contact Number" value="<?=$profileData->contact_number;?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="birthday" required="required" placeholder="Birthday">
+                                <input  type="text" class="form-control" name="birthday" required="required" placeholder="Birthday" value="<?=$profileData->birthday;?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="year_graduated" required="required" placeholder="Year Graduated">
+                                <input  type="text" class="form-control" name="year_graduated" required="required" placeholder="Year Graduated" value="<?=$profileData->year_graduated;?>">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="confirm_password" required="required" placeholder="Occupation">
+                                <input  type="text" class="form-control" name="occupation" required="required" placeholder="Occupation" value="<?=$profileData->occupation;?>">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="confirm_password" required="required" placeholder="Company Address">
+                                <input  type="text" class="form-control" name="company_address" required="required" placeholder="Company Address" value="<?=$profileData->company_address;?>">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Update Details</button>
+                    <button type="submit" class="btn btn-primary">Update Details</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
