@@ -22,11 +22,16 @@
 
     <section>
         <div class="container">
-            <div>
+            <h4>Add Post</h4>
+            <div class="comment-post">
                 <form>
-                    <input type="textarea" id="post_content"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <textarea type="text" class="form-control" id="post_content" rows="5" required="required" placeholder="Type your post here..."></textarea>
+                        </div>
+                    </div>
                     <input type="hidden" id="post_alumnus_id" value="<?= $this->session->userdata('alumnus_id'); ?>"/>
-                    <button type="button" id="submitPost">Post</button>
+                    <button type="button" id="submitPost" class="btn btn-black">add post</button>
                 </form>
             </div>
         </div>
@@ -51,66 +56,67 @@
                                     </p>
                                 </div>
                             </div>
-
-                            <?php if ($post['comments'] != null) : ?>                           
-                            <a href="#" class="text-capitalize ">
-                                read comments
-                                <span><i class="fa fa-angle-double-right"></i> </span>
-                            </a>
-                            <?php endif; ?>
-                            <div class="comments">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <?php if ($post['comments'] != null) : ?>                                   
-                                            <h3><?= count($post['comments']) ?> comments.</h3>
-                                            <div class="well">
+                            
+                            <!-- begin faq-widget -->
+                            <div class="faq-widget">
+                                <div class="topics">
+                                    <div class="faq-c">
+                                        <div class="faq-q">
+                                            Read <?= count($post['comments']) ?> Comments <span><i class="fa fa-angle-double-right"></i> </span><span class="faq-t">+</span>
+                                        </div>
+                                        <div class="faq-a">
+                                            <!-- <p>Facere tempora qui numquam nesciunt, distinctio asperiores, doloremque culpa, consequatur quo id corporis saepe ducimus tenetur architecto neque non.</p> -->
+                                            <div class="comments">
                                                 <div class="row">
-                                                    <?php foreach($post['comments'] as $comment) : ?>
-                                                        <div class="col-md-2">
-                                                            <img src="assets/img/commenter1.jpg" class="img-responsive center-block" alt="first-comment">
-                                                        </div>
-                                                        <div class="col-md-10">
-                                                            <p><strong><?=$comment->name?></strong></p><span>22 april 2015</span>
-                                                            <p><?=$comment->content?></p>
-                                                        </div>        
-                                                    <?php endforeach; ?> 
+                                                    <div class="col-md-12">
+                                                        <?php if ($post['comments'] != null) : ?>                                   
+                                                            
+                                                            <div class="well">
+                                                                <div class="row">
+                                                                    <?php foreach($post['comments'] as $comment) : ?>
+                                                                        <div class="col-md-2">
+                                                                            <img src="assets/img/commenter1.jpg" class="img-responsive center-block" alt="first-comment">
+                                                                        </div>
+                                                                        <div class="col-md-10">
+                                                                            <p><strong><?=$comment->name?></strong></p><span>22 april 2015</span>
+                                                                            <p><?=$comment->content?></p>
+                                                                        </div>        
+                                                                    <?php endforeach; ?> 
+                                                                </div>
+                                                            </div>
+                                                        <?php else: ?>
+                                                            No comments yet.                                     
+                                                        <?php endif; ?>  
+                                                    </div>
                                                 </div>
                                             </div>
-                                        <?php else: ?>
-                                            No comments yet.                                     
-                                        <?php endif; ?>  
-
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="comment-post">
-                                <h3>Post A Comment</h3>
-                                <form>
-                                    <div class="row">
-                                        <!-- <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input  name="name" type="text" class="form-control" id="name" required="required" placeholder="Full Name">
-                                            </div>
+                                <div class="topics">
+                                    <div class="faq-c">
+                                        <div class="faq-q">
+                                            Add Comment <span class="faq-t">+</span>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input name="email" type="email" class="form-control" id="email" required="required" placeholder="Email Address">
+                                        <div class="faq-a">
+                                            <!-- <p>Facere tempora qui numquam nesciunt, distinctio asperiores, doloremque culpa, consequatur quo id corporis saepe ducimus tenetur architecto neque non.</p> -->
+                                            <div class="comment-post">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <textarea name="message" name="content" type="text" class="form-control" id="comment_content" rows="3" required="required" placeholder="Type your comment here..."></textarea>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <button type="button" id="submitComment" class="btn btn-black">add comment</button>
+                                                </form>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input name="website" type="url" class="form-control" id="subject" required="required" placeholder="Your Website">
-                                            </div>
-                                        </div> -->
-                                        <div class="col-md-12">
-                                            <textarea name="message" name="content" type="text" class="form-control" id="comment_content" rows="8" required="required" placeholder="Type your here message"></textarea>
                                         </div>
                                     </div>
-                                    
-                                    <button type="button" id="submitComment" class="btn btn-black">post comment</button>
-                                </form>
-                            </div>
+                                </div>
+                            </div> <!-- /.faq-widget -->
+                            
                         </article>
                     </main>
                 </div>
