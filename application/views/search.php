@@ -53,7 +53,7 @@
                                                             <div class="row">                     
                                                                 <a href="<?php echo base_url('/profile?id='.$result->alumnus_id); ?>">
                                                                     <div>
-                                                                        <div class="pull-left col-md-10">
+                                                                        <div class="pull-left col-md-2">
                                                                             <img src="<?=$result->profile_pic ?>" class="img-responsive center-block" alt="first-comment">
                                                                         </div>
                                                                         <div class="col-md-10">
