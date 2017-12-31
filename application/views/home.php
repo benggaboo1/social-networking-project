@@ -31,7 +31,7 @@
             </div>
         </div>
     </section>
-    <section class="blog-content">
+    <section id="post-section" class="blog-content">
         <div class="container post">
             <?php if ($postData != null) : ?>
                 <?php foreach ($postData as $post) : ?>
@@ -41,23 +41,23 @@
                             <div class="blog-heading">
                                 <h3 class="text-capitalize"><?= $post['post']->name ?></h3>
                                 <span class="date"><?=date('M d, Y H:i a',strtotime($post['post']->create_timestamp))?></span>
-                                <span>12 comments</span>
                             </div>
                          
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="article-conclusion">
+                                        <input type="hidden" id="post_id" name="postId" value="<?=$post['post']->post_id; ?>"/>
                                         <?=$post['post']->content?>
                                     </p>
                                 </div>
                             </div>
 
-
+                            <?php if ($post['comments'] != null) : ?>                           
                             <a href="#" class="text-capitalize ">
                                 read comments
                                 <span><i class="fa fa-angle-double-right"></i> </span>
                             </a>
-
+                            <?php endif; ?>
                             <div class="comments">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -86,7 +86,7 @@
 
                             <div class="comment-post">
                                 <h3>Post A Comment</h3>
-                                <form method="post" >
+                                <form>
                                     <div class="row">
                                         <!-- <div class="col-md-4">
                                             <div class="form-group">
@@ -104,11 +104,11 @@
                                             </div>
                                         </div> -->
                                         <div class="col-md-12">
-                                            <textarea name="message" type="text" class="form-control" id="message" rows="8" required="required" placeholder="Type here message"></textarea>
+                                            <textarea name="message" name="content" type="text" class="form-control" id="comment_content" rows="8" required="required" placeholder="Type your here message"></textarea>
                                         </div>
                                     </div>
                                     
-                                    <button type="submit" id="submit" name="submit" class="btn btn-black">post comment</button>
+                                    <button type="button" id="submitComment" class="btn btn-black">post comment</button>
                                 </form>
                             </div>
                         </article>

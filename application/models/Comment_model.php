@@ -1,7 +1,7 @@
 <?php
 class Comment_model extends CI_model{
 
-public function get_comments($postId) {
+    public function get_comments($postId) {
         
         $query = $this->db->select('comment.post_id,comment.create_timestamp,comment.content,CONCAT(first_name," ",last_name) as name')
             ->from('comment')
@@ -18,6 +18,14 @@ public function get_comments($postId) {
         }
     }
 
+    public function create_comment($commentData) {
+        $query = $this->db->insert('comment',$commentData);
+        if ($query > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 }

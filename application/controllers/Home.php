@@ -36,33 +36,50 @@ public function index()
   $this->load->view("home",$postData);
 }
 
-private function get_posts() {
-  $postData = $this->post_model->get_all_posts();
-  return $postData;
-}
-public function home_view(){
+  private function get_posts() {
+    $postData = $this->post_model->get_all_posts();
+      return $postData;
+    }
+    public function home_view(){
 
-  $this->load->view("header");
-  $this->load->view("home");
-  $this->load->view("footer");
+    $this->load->view("header");
+    $this->load->view("home");
+    $this->load->view("footer");
 
-}
-
-public function new_post() {
-  $content = $this->input->post('content');
-  $alumnusId = $this->input->post('alumnus_id');
-  $postData = array(
-    'content'=>$content,
-    'alumnus_id'=>$alumnusId
-  ); 
-  $isSuccess = $this->post_model->create_post($postData);
-  if ($isSuccess) {
-    $data = $this->post_model->get_post($alumnusId);
-    echo json_encode($data);
-  } else {
-    //post failed
   }
-}
+
+  public function new_post() {
+    $content = $this->input->post('content');
+    $alumnusId = $this->input->post('alumnus_id');
+    $postData = array(
+      'content'=>$content,
+      'alumnus_id'=>$alumnusId
+    ); 
+    $isSuccess = $this->post_model->create_post($postData);
+    if ($isSuccess) {
+      //$data = $this->post_model->get_post($alumnusId);
+      //echo json_encode($data);
+    } else {
+      //post failed
+    }
+  }
+  public function new_comment() {
+    $content = $this->input->post('content');
+    $alumnusId = $this->input->post('alumnus_id');
+    $postId = $this->input->post('post_id');
+    $commentData = array(
+      'content'=>$content,
+      'alumnus_id'=>$alumnusId,
+      'post_id'=>$postId
+    ); 
+    $isSuccess = $this->comment_model->create_comment($commentData);
+    if ($isSuccess) {
+      //$data = $this->comment_model->get_comment($alumnusId);
+      //echo json_encode($data);
+    } else {
+      //post failed
+    }
+  }
 
 }
 
