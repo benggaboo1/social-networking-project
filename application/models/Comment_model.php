@@ -7,7 +7,7 @@ class Comment_model extends CI_model{
             ->from('comment')
             ->join('alumnus','comment.alumnus_id = alumnus.alumnus_id')
             ->join('post','comment.post_id = post.post_id')
-            ->order_by("create_timestamp", "desc")
+            ->order_by("create_timestamp", "asc")
             ->where('comment.post_id',$postId)->get();
   
         if ($query->num_rows() > 0) {
