@@ -26,6 +26,10 @@ public function index()
   }
 }
 
+public function create_user() {
+  
+}
+
 public function alumni_view(){
 
   $this->load->view("header");

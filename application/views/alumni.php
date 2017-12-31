@@ -65,10 +65,13 @@
                                             <td><?= $alumnus->gender ?></td>
                                             <td><?= $alumnus->address ?></td>
                                             <td><?= $alumnus->contact_number ?></td>
-                                            <td><?= $alumnus->occupation ?></td>
-                                            <?php if ($alumnus->has_account == 0) : ?>   
-                                            <td><center><i class="fa fa-plus-square-o fa-fw" data-toggle="modal" data-target="#add-user-modal"></i></center></td>                            
+                                            <td><?= $alumnus->occupation ?></td>                   
+                                            <td><center>
+                                            <?php if ($alumnus->has_account == 0) : ?>
+                                                <i class="fa fa-plus-square-o fa-fw" data-toggle="modal" data-target="#add-user-modal"></i>
                                             <?php endif; ?>
+                                            </center></td>  
+                                            
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php else: ?>
@@ -163,6 +166,7 @@
 
 
     <div id="add-user-modal" class="modal fade" style="margin-top: 100px;">
+        <form method="post" action="<?php base_url("alumni/create_user"); ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -178,29 +182,32 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input  type="text" class="form-control" id="email_address" required="required" placeholder="Email Address">
+                                <input type="email" class="form-control" name="email" required="required" placeholder="Email Address">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input  type="password" class="form-control" id="password" required="required" placeholder="Password">
+                                <input type="password" class="form-control" name="password" required="required" placeholder="Password">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input  type="password" class="form-control" id="confirm_password" required="required" placeholder="Confirm Password">
+                                <input type="password" class="form-control" name="confirm_password" required="required" placeholder="Confirm Password">
                             </div>
                         </div>
+                        <input type="hidden" id="alumnusId" name="alumnus_id"/>
                     </div>
                     <!-- <p>Do you want to save changes you made to document before closing?</p>
                     <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add User</button>
+                    <button type="button" class="btn btn-primary" id="addUser">Add User</button>
                 </div>
             </div>
         </div>
+        </form>
     </div>
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url('/assets/js/alumni.js'); ?>"></script>
 </body>
 </html>
