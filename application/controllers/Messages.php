@@ -6,16 +6,23 @@ class Messages extends CI_Controller {
 
             parent::__construct();
                 $this->load->helper('url');
-                //$this->load->model('user_model');
-            $this->load->library('session');
+                $this->load->model('message_model');
+                $this->load->model('user_model');
+                $this->load->library('session');
 
     }
 
     public function index()
     {
-        $this->load->view('header');
-        $this->load->view("messages");
-        $this->load->view('footer');
+        $alumniList = $this->user_model->get_alumni();
+        $alumnusId = $this->session->userdata('alumnus_id');
+
+        $this->load->view("header",
+        array(
+          "id"=>$this->session->userdata('alumnus_id')
+            )
+        );
+        $this->load->view("messages",array("alumniList"=>$alumniList));
     }
 
 }

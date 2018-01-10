@@ -80,7 +80,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><span>messages</span></a>
+                        <a href="<?php echo base_url('/messages'); ?>"><span>messages</span></a>
                     </li>
 
                     <li>
