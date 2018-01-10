@@ -17,6 +17,7 @@ class Messages extends CI_Controller {
         $alumnusId = $this->session->userdata('alumnus_id');
         $alumniList = $this->user_model->get_alumni_with_account($alumnusId);
         $chatMemberId = $this->input->get('member');
+        $messages = [];
 
         $this->load->view("header",
         array(
