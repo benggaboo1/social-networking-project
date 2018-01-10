@@ -14,15 +14,35 @@ class Messages extends CI_Controller {
 
     public function index()
     {
-        $alumniList = $this->user_model->get_alumni();
         $alumnusId = $this->session->userdata('alumnus_id');
+        $alumniList = $this->user_model->get_alumni_with_account($alumnusId);
+        $chatMemberId = $this->input->get('member');
 
         $this->load->view("header",
         array(
           "id"=>$this->session->userdata('alumnus_id')
             )
         );
-        $this->load->view("messages",array("alumniList"=>$alumniList));
+        if (ISSET($chatMemberId) && $chatMemberId > 0) {
+            $messages = $this->message_model->get_messages($alumnusId,$chatMemberId);
+        }
+        if (count($messages) > 0) {
+            $this->load->view("messages",array("alumniList"=>$alumniList,"messages"=>$messages));
+        } else {
+            $this->load->view("messages",array("alumniList"=>$alumniList));
+        }
+        
+    }
+
+    public function getMessages() {
+        
+        $messages = $this->message_model->get_messages($alumnusId,$chatMemberId);
+
+        if (count($messages) == 0) {
+            $messages = null;    
+        }
+        
+        
     }
 
 }

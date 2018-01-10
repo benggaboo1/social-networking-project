@@ -83,6 +83,20 @@ class User_model extends CI_model{
     }
   }
 
+  public function get_alumni_with_account($alumnusId) {
+    $query = $this->db->select('*')
+      ->from('alumnus')
+      ->where('has_account',1)
+      ->where('alumnus_id != ', $alumnusId)
+      ->get();
+
+    if($query->num_rows()>0){
+      return $query->result();
+    }else{
+      return false;
+    }
+  }
+
   public function update_profile($alumnusId,$data) {
 
     $this->db->where('alumnus_id',$alumnusId);
