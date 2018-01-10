@@ -29,9 +29,10 @@ public function index()
 public function create_user() {
 
   $email = $this->input->post('email');
-  $isEmailExist = $this->user_model->email_check($email);
-
   if ($email) {
+    $isEmailExist = $this->user_model->email_check($email);
+  }
+  if (!$isEmailExist) {
     $alumnusId = $this->input->post('alumnus_id');
     $password = md5($this->input->post('password'));
     $data = array(
@@ -40,14 +41,12 @@ public function create_user() {
       'password'=>$password
     );
     $this->user_model->link_user_data($data);
+    $this->session->set_flashdata('success_msg', 'Successfully registered.');
     redirect('Alumni');
   } else {
-
+    $this->session->set_flashdata('error_msg', 'Email is already taken.');
+    redirect('Alumni');
   }
-  
-
-  $this->user_model->link_user_data($data);
-
 }
 
 public function alumni_view(){

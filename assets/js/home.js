@@ -52,7 +52,7 @@ $(document).ready(function() {
             //dataType: 'JSON',
             success: function(data){         
                 //$('#post-section').load(location.href+" #post-section>","");
-                $('.comment_content').val('');
+                $(this).parent().find('.comment_content').val('');
                 $('#post-section').load(location.href+" #post-section>", function( response, status, xhr ) {
                     if (status == "success") {
                         $(".faq-q").click( function () {

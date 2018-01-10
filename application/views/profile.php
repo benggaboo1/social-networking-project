@@ -132,9 +132,7 @@
                                             <div class="col-md-9 col-xs-9 address-info-desc">
                                                 <h3>Email Address</h3>
                                                 <p>
-                                                    info@example.com
-                                                    <br/>
-                                                    www.example.com
+                                                    <?= $profileData->email ?>
                                                 </p>
                                             </div> <!-- /.address-info-desc -->
 

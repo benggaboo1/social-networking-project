@@ -1,5 +1,8 @@
 
-  
+
+<?php
+  ini_set('display_errors', 1);
+?>
 <div id="single-blog-full-width">
     <!-- header begin -->
     <header class="page-head">

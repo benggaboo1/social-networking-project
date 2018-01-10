@@ -19,20 +19,23 @@ public function index()
   $data['alumnusData'] = $this->user_model->get_alumnus_data($alumnusId);
   $postData = $this->get_posts();
   $postAndComment = array();
-  foreach ($postData as $post ) {
-    $object = array(
-      'post'=>$post,
-      'comments'=>$this->comment_model->get_comments($post->post_id)
-    );
-    array_push($postAndComment,$object);
+  if (count($postData) > 0) {
+    foreach ($postData as $post ) {
+      $object = array(
+        'post'=>$post,
+        'comments'=>$this->comment_model->get_comments($post->post_id)
+      );
+      array_push($postAndComment,$object);
+    }
+    $postData['postData'] = $postAndComment;          
+  } else {
+    $postData['postData'] = [];
   }
-  $postData['postData'] = $postAndComment;      
   $this->load->view("header",
-      array(
-        "id"=>$this->session->userdata('alumnus_id')
-      )
-    ); 
-  
+  array(
+    "id"=>$this->session->userdata('alumnus_id')
+    )
+  );
   $this->load->view("home",$postData);
 }
 

@@ -27,7 +27,25 @@
                 <!--  begin portfolio section  -->
                 <section class="bg-light-gray">
                     <div class="container">
+                    <?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
 
+                  if($success_msg){
+                    ?>
+                    <div class="alert alert-success">
+                      <?php echo $success_msg; ?>
+                    </div>
+                  <?php
+                  }
+                  if($error_msg){
+                    ?>
+                    <div class="alert alert-danger">
+                      <?php echo $error_msg; ?>
+                    </div>
+                    <?php
+                  }
+                  ?>
                         <div class="headline text-center">
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
@@ -173,7 +191,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Create User</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body">       
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
