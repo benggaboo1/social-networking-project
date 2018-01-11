@@ -46,4 +46,23 @@ class Messages extends CI_Controller {
         
     }
 
+    public function new_message() {
+        $content = $this->input->post('content');
+        $sender_id = $this->input->post('senderId');
+        //$sender_id = $this->session->userdata('alumnus_id');
+        $receiver_id = $this->input->post('receiverId');
+        $messageData = array(
+          'content'=>$content,
+          'sender_id'=>$sender_id,
+          'receiver_id'=>$receiver_id
+        ); 
+        $isSuccess = $this->message_model->create_message($messageData);
+        if ($isSuccess) {
+          //$data = $this->post_model->get_post($alumnusId);
+          //echo json_encode($data);
+        } else {
+          //post failed
+        }
+      }
+
 }

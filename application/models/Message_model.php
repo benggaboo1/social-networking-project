@@ -18,4 +18,13 @@ class Message_model extends CI_model{
         } 
     }
 
+    public function create_message($messageData) {
+        $query = $this->db->insert('message',$messageData);
+        if ($query > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

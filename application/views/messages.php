@@ -24,36 +24,38 @@
                 <div class="container">
                     <div class="row">
                         <main class="col-md-9 col-md-push-3" style="display: block;">
-                            
                             <?php if (ISSET($messages)) : ?>
-                                <?php foreach ($messages as $message) :?>
-                                    <article class="blog-item">
-                                        <div class="blog-heading">
-                                            <h3 class="text-capitalize"><?= $message->sender_name ?></h3>
-                                            <span class="date">
-                                                Sent: <?= date('mdY',strtotime($message->create_timestamp)) == date('mdY',strtotime("now")) ? date('h:i a',strtotime($message->create_timestamp)) : date('M d, Y h:i a',strtotime($message->create_timestamp)); ?>
-                                            </span>
-                                        </div>
-                                        <p>
-                                            <?= $message->content ?>
-                                        </p>
-                                    </article>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-
-                            <div class="comment-post">
-                                <h3>Reply</h3>
-                                <form role="form" method="POST" >
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <textarea name="message" type="text" class="form-control" id="chatbox" rows="2" placeholder="Type message here"></textarea>
-                                            <input type="hidden" id="senderId" value="<?= $this->session->userdata('alumnus_id'); ?>"/>
-                                        </div>
-                                    </div>
+                                <article id="message-section" class="blog-item">
                                     
-                                    <button type="button" id="sendMessage" class="btn btn-black">Send</button>
-                                </form>
-                            </div>
+                                    <?php foreach ($messages as $message) :?>
+                                        <div>
+                                            <div class="blog-heading">
+                                                <h3 class="text-capitalize"><?= $message->sender_name ?></h3>
+                                                <span class="date">
+                                                    Sent: <?= date('mdY',strtotime($message->create_timestamp)) == date('mdY',strtotime("now")) ? date('h:i a',strtotime($message->create_timestamp)) : date('M d, Y h:i a',strtotime($message->create_timestamp)); ?>
+                                                </span>
+                                            </div>
+                                            <p>
+                                                <?= $message->content ?>
+                                            </p>
+                                        </div>
+                                    <?php endforeach; ?>
+                                    
+                                </article>
+                                <div class="comment-post">
+                                    <h3>Reply</h3>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <textarea id="message_content" type="text" class="form-control" required="required" rows="2" placeholder="Type your message here..."></textarea>
+                                                <input type="hidden" id="sender_id" value="<?= $this->session->userdata('alumnus_id'); ?>"/>
+                                                <input type="hidden" id="receiver_id" value="<?= $this->input->get('member'); ?>"/>
+                                            </div>
+                                        </div>
+                                        <button type="button" id="submitMessage" class="btn btn-black">Send</button>
+                                    </form>
+                                </div>
+                            <?php endif; ?>
                         </main>
 
 
@@ -165,19 +167,32 @@
         <!-- script for FAQ using jquery -->
 
         <script>
-            $(".faq-q").click( function () {
-              var container = $(this).parents(".faq-c");
-              var answer = container.find(".faq-a");
-              var trigger = container.find(".faq-t");
-              
-              answer.slideToggle(200);
-              
-              if (trigger.hasClass("faq-o")) {
-                trigger.removeClass("faq-o");
-              }
-              else {
-                trigger.addClass("faq-o");
-              }
+            $(document).ready(function(){
+                $('#submitMessage').click(function() {
+                    var content = $('#message_content').val();
+                    var senderId = $('#sender_id').val();
+                    var receiverId = $('#receiver_id').val();
+                    $.ajax({
+                        type: 'POST',
+                        url: baseUrl + 'messages/new_message',
+                        data: {'senderId' : senderId, 'receiverId' : receiverId,'content' : content},
+                        success: function(data){
+                            $('#message-section').load(location.href+" #message-section>*","");
+                            $('#message_content').val('');
+                            $('#message-section').load(location.href+" #message-section>", function( response, status, xhr ) {
+                                if (status == "success") {
+                                    console.log(status);
+                                }       
+                                if ( status == "error" ) {
+                                    console.log(status);
+                                }
+                            }); 
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                            console.log("Status: " + textStatus); console.log("Error: " + errorThrown); 
+                        }     
+                    });
+                });
             });
         </script>
 </body>
