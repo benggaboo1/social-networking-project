@@ -24,11 +24,10 @@
                 <div class="container">
                     <div class="row">
                         <main class="col-md-9 col-md-push-3" style="display: block;">
-                            <?php if (ISSET($messages)) : ?>
-                                <article id="message-section" class="blog-item">
-                                    
+                            <article id="message-section" class="blog-item">
+                                <?php if (ISSET($messages)) : ?>
                                     <?php foreach ($messages as $message) :?>
-                                        <div>
+                                        <div class="receiverSide senderSide">
                                             <div class="blog-heading">
                                                 <h3 class="text-capitalize"><?= $message->sender_name ?></h3>
                                                 <span class="date">
@@ -40,22 +39,21 @@
                                             </p>
                                         </div>
                                     <?php endforeach; ?>
-                                    
-                                </article>
-                                <div class="comment-post">
-                                    <h3>Reply</h3>
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <textarea id="message_content" type="text" class="form-control" required="required" rows="2" placeholder="Type your message here..."></textarea>
-                                                <input type="hidden" id="sender_id" value="<?= $this->session->userdata('alumnus_id'); ?>"/>
-                                                <input type="hidden" id="receiver_id" value="<?= $this->input->get('member'); ?>"/>
-                                            </div>
+                                <?php endif; ?> 
+                            </article>
+                            <div class="comment-post">
+                                <h3>Reply</h3>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <textarea id="message_content" type="text" class="form-control" required="required" rows="2" placeholder="Type your message here..."></textarea>
+                                            <input type="hidden" id="sender_id" value="<?= $this->session->userdata('alumnus_id'); ?>"/>
+                                            <input type="hidden" id="receiver_id" value="<?= $this->input->get('member'); ?>"/>
                                         </div>
-                                        <button type="button" id="submitMessage" class="btn btn-black">Send</button>
-                                    </form>
-                                </div>
-                            <?php endif; ?>
+                                    </div>
+                                    <button type="button" id="submitMessage" class="btn btn-black">Send</button>
+                                </form>
+                            </div>
                         </main>
 
 
