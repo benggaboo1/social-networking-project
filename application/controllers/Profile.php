@@ -9,6 +9,8 @@ public function __construct(){
   	 		$this->load->model('user_model');
         $this->load->model('post_model');
         $this->load->library('session');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('user_agent');
 
 }
 
@@ -63,6 +65,28 @@ public function profile_view(){
   $this->load->view("header");
   $this->load->view("profile");
 
+}
+
+public function update_profilepic() {
+  $alumnusId = $this->session->userdata('alumnus_id');
+  $config['upload_path']          = './assets/img/profile_pictures';
+  $config['allowed_types']        = 'gif|jpg|png';
+  $config['file_name'] = $alumnusId;
+
+  $this->load->library('upload', $config);
+
+  if (!$this->upload->do_upload('userfile'))
+  {
+    $error = array('error' => $this->upload->display_errors());
+    $this->session->set_flashdata('error_msg', implode($error,','));
+    redirect($this->agent->referrer());
+    
+  } else {
+    $data = $this->upload->data();
+    $this->user_model->update_profile_picture($alumnusId,$data['file_name']);
+    
+    redirect('profile?id='.$alumnusId);
+  }
 }
 
 }

@@ -54,7 +54,11 @@
                                                                 <a href="<?php echo base_url('/profile?id='.$result->alumnus_id); ?>">
                                                                     <div>
                                                                         <div class="pull-left col-md-2">
-                                                                            <img src="<?=$result->profile_pic ?>" class="img-responsive center-block" alt="first-comment">
+                                                                            <?php if($result->profile_pic != null) : ?>
+                                                                                <img src="<?=base_url('/assets/img/profile_pictures/'.$result->profile_pic)?>" class="img-responsive center-block" alt="team-member 3" >
+                                                                            <?php else: ?>
+                                                                                <img src="<?=base_url('/assets/img/team-member3.jpg')?>" class="img-responsive center-block" alt="team-member 3" >
+                                                                            <?php endif; ?>
                                                                         </div>
                                                                         <div class="col-md-10">
                                                                             <p class="comment-info">

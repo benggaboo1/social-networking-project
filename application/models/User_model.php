@@ -18,6 +18,13 @@ class User_model extends CI_model{
     
   }
 
+  public function update_profile_picture($alumnusId,$profilePicture) {
+
+    $query = 'UPDATE alumnus SET profile_pic = ? WHERE alumnus_id = ?';
+    $this->db->query($query, array($profilePicture,$alumnusId));
+    
+  }
+
   public function auth($email,$pass){
 
     $this->db->select('alumnus_id,email,is_admin')

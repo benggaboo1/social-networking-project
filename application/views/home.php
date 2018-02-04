@@ -78,7 +78,11 @@
                                                                 <div class="row">
                                                                     <?php foreach($post['comments'] as $comment) : ?>
                                                                         <div class="col-md-2">
-                                                                            <img src="assets/img/commenter1.jpg" class="img-responsive center-block" alt="first-comment">
+                                                                         <?php if($comment->profile_pic != null) : ?>
+                                                                            <img src="<?=base_url('/assets/img/profile_pictures/'.$comment->profile_pic)?>" class="img-responsive center-block" alt="team-member 3" >
+                                                                        <?php else: ?>
+                                                                            <img src="<?=base_url('/assets/img/team-member3.jpg')?>" class="img-responsive center-block" alt="team-member 3" >
+                                                                        <?php endif; ?>
                                                                         </div>
                                                                         <div class="col-md-10">
                                                                             <p><strong><?=$comment->name?></strong></p><span class="date"><?=date('M d, Y H:i a',strtotime($comment->create_timestamp))?></span>

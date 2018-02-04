@@ -44,8 +44,31 @@
                                         <div class="team-member-box text-center">
                                             <?php if($this->input->get('id') == $id) : ?>
                                                 <div class="cmnt-clipboard"><span class="btn-clipboard" data-toggle="modal" data-target="#edit-profilepic-modal"><i class="fa fa-edit"></i></span></div>
+                                                <?php if($profileData->profile_pic != null) : ?>
+                                                    <img src="<?=base_url('/assets/img/profile_pictures/'.$profileData->profile_pic)?>" class="img-responsive center-block" alt="team-member 3" >
+                                                <?php else: ?>
+                                                    <img src="<?=base_url('/assets/img/team-member3')?>" class="img-responsive center-block" alt="team-member 3" >
+                                                <?php endif; ?>
                                             <?php endif; ?>
-                                            <img src="assets/img/team-member3.jpg" class="img-responsive center-block" alt="team-member 3" >
+                                                <?php
+                                                    $success_msg= $this->session->flashdata('success_msg');
+                                                    $error_msg= $this->session->flashdata('error_msg');
+
+                                                    if($success_msg){
+                                                        ?>
+                                                        <div class="alert alert-success">
+                                                        <?php echo $success_msg; ?>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                    if($error_msg){
+                                                        ?>
+                                                        <div class="alert alert-danger">
+                                                        <?php echo $error_msg; ?>
+                                                        </div>
+                                                        <?php
+                                                    }
+                                                ?>
                                             <?php if($this->input->get('id') == $id) : ?>
                                                 <div class="cmnt-clipboard"><span class="btn-clipboard" data-toggle="modal" data-target="#edit-profile-modal"><i class="fa fa-edit"></i></span></div>
                                             <?php endif; ?>
@@ -316,17 +339,17 @@
     <div id="edit-profilepic-modal" class="modal fade" style="margin-top: 50px;">
         <div class="modal-dialog">
             <div class="modal-content">
-            <form method="post" action="<?= base_url('profile/update_profilepic'); ?>">
+            <?php echo form_open_multipart(base_url('profile/update_profilepic'));?>
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Edit Profile Picture</h4>
                 </div>
                 <div class="modal-body">
-                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input  type="file" class="form-control" name="" required="required" placeholder="Add photo" >
+                                <input type="file" class="form-control" name="userfile" required="required" placeholder="Add photo" >
+                                <input type="hidden" name="alumnus_id" value="<?=$id?>"/>
                             </div>
                         </div>
                     </div>
