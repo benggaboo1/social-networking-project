@@ -63,13 +63,15 @@
                             <table id="example" class="stripe" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Year Graduated</th>
                                         <th>Name</th>
-                                        <th>Age</th>
-                                        <th>Gender</th>
                                         <th>Address</th>
                                         <th>Contact Number</th>
-                                        <th>Occupation</th>
+                                        <th>Email Address</th>
+                                        <th>Teaching</th>
+                                        <th>Course Related</th>
+                                        <th>Job Description</th>
+                                        <th>Company Address</th>
+                                        <th>Year Graduated</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -77,13 +79,15 @@
                                 <?php if (count($alumniList) > 0) : ?>
                                     <?php foreach ($alumniList as $alumnus) :?>
                                         <tr>
-                                        	<td><span class="alumnusId" hidden="hidden"><?= $alumnus->alumnus_id ?></span><?= $alumnus->year_graduated ?></td>
                                             <td><?= $alumnus->last_name.', '.$alumnus->first_name ?></td>
-                                            <td><?= $alumnus->age ?></td>
-                                            <td><?= $alumnus->gender ?></td>
                                             <td><?= $alumnus->address ?></td>
                                             <td><?= $alumnus->contact_number ?></td>
-                                            <td><?= $alumnus->occupation ?></td>                   
+                                            <td>emailAddress</td>
+                                            <td>isTeaching</td>
+                                            <td>isRelated</td>
+                                            <td><?= $alumnus->occupation ?></td>  
+                                            <td><?= $alumnus->company_address ?></td>                 
+                                        	<td><span class="alumnusId" hidden="hidden"><?= $alumnus->alumnus_id ?></span><?= $alumnus->year_graduated ?></td>
                                             <td><center>
                                             <?php if ($alumnus->has_account == 0) : ?>
                                                 <i class="fa fa-plus-square-o fa-fw addUserBtn"></i>

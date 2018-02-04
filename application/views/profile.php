@@ -42,6 +42,9 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="team-member-box text-center">
+                                            <?php if($this->input->get('id') == $id) : ?>
+                                                <div class="cmnt-clipboard"><span class="btn-clipboard" data-toggle="modal" data-target="#edit-profilepic-modal"><i class="fa fa-edit"></i></span></div>
+                                            <?php endif; ?>
                                             <img src="assets/img/team-member3.jpg" class="img-responsive center-block" alt="team-member 3" >
                                             <?php if($this->input->get('id') == $id) : ?>
                                                 <div class="cmnt-clipboard"><span class="btn-clipboard" data-toggle="modal" data-target="#edit-profile-modal"><i class="fa fa-edit"></i></span></div>
@@ -297,6 +300,33 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <input  type="text" class="form-control" name="company_address" required="required" placeholder="Company Address" value="<?=$profileData->company_address;?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update Details</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-profilepic-modal" class="modal fade" style="margin-top: 50px;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <form method="post" action="<?= base_url('profile/update_profilepic'); ?>">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Edit Profile Picture</h4>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input  type="file" class="form-control" name="" required="required" placeholder="Add photo" >
                             </div>
                         </div>
                     </div>
