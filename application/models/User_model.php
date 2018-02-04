@@ -40,15 +40,16 @@ class User_model extends CI_model{
       ->where('email',$email)->get();
 
     if($query->num_rows()>0){
-      return false;
-    }else{
       return true;
+    }else{
+      return false;
     }
   }
   public function get_alumnus_data($alumnusId) {
     $query = $this->db->select('*')
       ->from('alumnus')
-      ->where('alumnus_id',$alumnusId)
+      ->join('user','user.alumnus_id = alumnus.alumnus_id')
+      ->where('alumnus.alumnus_id',$alumnusId)
       ->limit(1)->get()->row();
 
     if($query){   
@@ -61,7 +62,7 @@ class User_model extends CI_model{
   public function get_search_result($searchInput) {
 
     $query = 'SELECT alumnus_id,CONCAT(first_name," ",last_name) AS name, profile_pic, address FROM alumnus 
-    WHERE (first_name LIKE "%"?"%") OR (last_name LIKE "%"?"%") OR (CONCAT(first_name," ",last_name) LIKE "%"?"%")';
+    WHERE has_account=1 AND ((first_name LIKE "%"?"%") OR (last_name LIKE "%"?"%") OR (CONCAT(first_name," ",last_name) LIKE "%"?"%"))';
     $result = $this->db->query($query,array($searchInput,$searchInput,$searchInput));
 
     if($result->num_rows()>0){
@@ -74,6 +75,20 @@ class User_model extends CI_model{
   public function get_alumni() {
     $query = $this->db->select('*')
       ->from('alumnus')->get();
+
+    if($query->num_rows()>0){
+      return $query->result();
+    }else{
+      return false;
+    }
+  }
+
+  public function get_alumni_with_account($alumnusId) {
+    $query = $this->db->select('*')
+      ->from('alumnus')
+      ->where('has_account',1)
+      ->where('alumnus_id != ', $alumnusId)
+      ->get();
 
     if($query->num_rows()>0){
       return $query->result();
